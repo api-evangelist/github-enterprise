@@ -1,0 +1,94 @@
+aid: github-enterprise
+name: GitHub Enterprise
+description: >-
+  GitHub Enterprise is GitHub's offering for organizations that need advanced
+  security, compliance, identity, and scale on top of the GitHub platform.
+  It ships in two flavors: GitHub Enterprise Cloud, a hosted multi-tenant
+  service on api.github.com with enterprise-managed users and SAML SSO; and
+  GitHub Enterprise Server (GHES), a self-hosted appliance with the same
+  REST and GraphQL APIs served from a customer's domain at /api/v3 and
+  /api/graphql. Both expose the full GitHub REST API for repositories,
+  issues, pull requests, actions, packages, advanced security, audit log,
+  SCIM, and admin operations, authenticated with personal access tokens or
+  GitHub App tokens.
+type: Index
+image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+tags:
+  - Source Control
+  - DevOps
+  - CI/CD
+  - Code Hosting
+  - Enterprise
+  - Self-Hosted
+  - SAML SSO
+  - SCIM
+  - Advanced Security
+url: >-
+  https://raw.githubusercontent.com/api-evangelist/github-enterprise/refs/heads/main/apis.yml
+created: '2026-05-11'
+modified: '2026-05-11'
+specificationVersion: '0.19'
+apis:
+  - aid: github-enterprise:cloud-rest-api
+    name: GitHub Enterprise Cloud REST API
+    description: >-
+      Hosted GitHub Enterprise Cloud REST API. Provides full access to
+      repositories, issues, pull requests, GitHub Actions, packages, code
+      scanning, secret scanning, Dependabot, audit log, SCIM provisioning,
+      and enterprise admin endpoints. Authentication via fine-grained personal
+      access tokens, GitHub App installation tokens, or OAuth.
+    humanURL: https://docs.github.com/en/enterprise-cloud@latest/rest
+    baseURL: https://api.github.com
+    tags:
+      - REST
+      - Source Control
+      - Enterprise Cloud
+      - SCIM
+      - Audit Log
+    properties:
+      - type: Documentation
+        url: https://docs.github.com/en/enterprise-cloud@latest/rest
+      - type: OpenAPI
+        url: https://github.com/github/rest-api-description
+      - type: Authentication
+        url: https://docs.github.com/en/enterprise-cloud@latest/rest/overview/authenticating-to-the-rest-api
+      - type: GraphQL API
+        url: https://docs.github.com/en/enterprise-cloud@latest/graphql
+  - aid: github-enterprise:server-rest-api
+    name: GitHub Enterprise Server REST API
+    description: >-
+      Self-hosted GitHub Enterprise Server REST API served from a customer's
+      own hostname under /api/v3. Per-version OpenAPI descriptions are
+      published for each GHES release (ghes-X.X) alongside the hosted GHEC
+      and api.github.com descriptions in github/rest-api-description.
+    humanURL: https://docs.github.com/en/enterprise-server@latest/rest
+    baseURL: https://HOSTNAME/api/v3
+    tags:
+      - REST
+      - Self-Hosted
+      - Enterprise Server
+      - On-Premises
+    properties:
+      - type: Documentation
+        url: https://docs.github.com/en/enterprise-server@latest/rest
+      - type: OpenAPI
+        url: https://github.com/github/rest-api-description
+      - type: GraphQL API
+        url: https://docs.github.com/en/enterprise-server@latest/graphql
+
+common:
+  - type: Website
+    url: https://github.com/enterprise
+  - type: Documentation
+    url: https://docs.github.com/en/enterprise-cloud@latest
+  - type: Pricing
+    url: https://github.com/enterprise/pricing
+  - type: Sign Up
+    url: https://github.com/enterprise/contact
+  - type: Status
+    url: https://www.githubstatus.com
+  - type: OpenAPI Repository
+    url: https://github.com/github/rest-api-description
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com
