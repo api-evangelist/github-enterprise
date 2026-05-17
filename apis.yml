@@ -83,9 +83,9 @@ common:
     url: https://docs.github.com/en/enterprise-cloud@latest
   - type: Pricing
     url: https://github.com/enterprise/pricing
-  - type: Sign Up
+  - type: SignUp
     url: https://github.com/enterprise/contact
-  - type: Status
+  - type: StatusPage
     url: https://www.githubstatus.com
   - type: OpenAPI Repository
     url: https://github.com/github/rest-api-description
