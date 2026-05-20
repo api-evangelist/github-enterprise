@@ -77,6 +77,8 @@ apis:
         url: https://docs.github.com/en/enterprise-server@latest/graphql
 
 common:
+  - type: LinkedIn
+    url: https://www.linkedin.com/showcase/github-enterprise
   - type: Website
     url: https://github.com/enterprise
   - type: Documentation
