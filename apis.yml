@@ -91,6 +91,8 @@ common:
     url: https://www.githubstatus.com
   - type: OpenAPI Repository
     url: https://github.com/github/rest-api-description
+  - type: LLMsTxt
+    url: https://docs.github.com/llms.txt
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com
