@@ -12,7 +12,7 @@ description: >-
   SCIM, and admin operations, authenticated with personal access tokens or
   GitHub App tokens.
 type: Index
-image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
 tags:
 - Source Control
 - DevOps
