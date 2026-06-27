@@ -87,13 +87,13 @@ common:
   url: https://docs.github.com/en/enterprise-cloud@latest
 - type: Pricing
   url: https://github.com/enterprise/pricing
-- type: SignUp
+- type: Signup
   url: https://github.com/enterprise/contact
 - type: StatusPage
   url: https://www.githubstatus.com
 - type: OpenAPI Repository
   url: https://github.com/github/rest-api-description
-- type: LLMsTxt
+- type: LlmsText
   url: https://docs.github.com/llms.txt
 maintainers:
 - FN: Kin Lane
