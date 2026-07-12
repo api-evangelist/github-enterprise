@@ -79,6 +79,8 @@ apis:
     url: https://docs.github.com/en/enterprise-server@latest/graphql
 
 common:
+- type: Authentication
+  url: authentication/github-enterprise-authentication.yml
 - type: LinkedIn
   url: https://www.linkedin.com/showcase/github-enterprise
 - type: Website
@@ -95,6 +97,8 @@ common:
   url: https://github.com/github/rest-api-description
 - type: LlmsText
   url: https://docs.github.com/llms.txt
+- type: Blog
+  url: https://github.blog/feed/
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com

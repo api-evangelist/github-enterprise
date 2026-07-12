@@ -1,0 +1,23 @@
+generated: '2026-07-11'
+method: derived
+source: openapi/github-enterprise-openapi.yml
+summary:
+  types:
+  - apiKey
+  - http
+  api_key_in:
+  - header
+schemes:
+- name: bearerAuth
+  type: http
+  scheme: bearer
+  bearerFormat: GitHub Token (PAT or App installation token)
+  sources:
+  - openapi/github-enterprise-openapi.yml
+- name: patAuth
+  type: apiKey
+  in: header
+  parameter: Authorization
+  description: Use "token YOUR_PAT" for classic personal access tokens.
+  sources:
+  - openapi/github-enterprise-openapi.yml
