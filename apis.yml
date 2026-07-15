@@ -79,6 +79,8 @@ apis:
     url: https://docs.github.com/en/enterprise-server@latest/graphql
 
 common:
+- type: AgenticAccess
+  url: agentic-access/github-enterprise-agentic-access.yml
 - type: Authentication
   url: authentication/github-enterprise-authentication.yml
 - type: LinkedIn
