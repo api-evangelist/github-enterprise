@@ -1,0 +1,103 @@
+openapi: 3.1.0
+info:
+  title: GitHub Enterprise Cloud REST Actions Users API
+  version: '2026-05-23'
+  description: 'Best-effort OpenAPI 3.1 description of representative GitHub Enterprise
+
+    Cloud REST API endpoints across repositories, issues, pull requests,
+
+    actions, organizations, enterprises (admin / audit log), code scanning,
+
+    SCIM, and users. The full surface is documented at
+
+    https://docs.github.com/en/enterprise-cloud@latest/rest. For GitHub
+
+    Enterprise Server, the same paths are served under /api/v3 on the
+
+    customer''s domain.
+
+    '
+  contact:
+    name: GitHub Enterprise REST API
+    url: https://docs.github.com/en/enterprise-cloud@latest/rest
+servers:
+- url: https://api.github.com
+  description: GitHub Enterprise Cloud
+- url: https://{hostname}/api/v3
+  description: GitHub Enterprise Server (self-hosted)
+  variables:
+    hostname:
+      default: github.example.com
+security:
+- bearerAuth: []
+- patAuth: []
+tags:
+- name: Users
+paths:
+  /user:
+    get:
+      summary: Get the authenticated user
+      operationId: getAuthenticatedUser
+      tags:
+      - Users
+      responses:
+        '200':
+          description: User
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+  /users/{username}:
+    parameters:
+    - $ref: '#/components/parameters/Username'
+    get:
+      summary: Get a user
+      operationId: getUser
+      tags:
+      - Users
+      responses:
+        '200':
+          description: User
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+components:
+  schemas:
+    User:
+      type: object
+      properties:
+        id:
+          type: integer
+        login:
+          type: string
+        name:
+          type: string
+        email:
+          type: string
+          format: email
+        avatar_url:
+          type: string
+          format: uri
+        html_url:
+          type: string
+          format: uri
+        type:
+          type: string
+  parameters:
+    Username:
+      in: path
+      name: username
+      required: true
+      schema:
+        type: string
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: GitHub Token (PAT or App installation token)
+    patAuth:
+      type: apiKey
+      in: header
+      name: Authorization
+      description: Use "token YOUR_PAT" for classic personal access tokens.

@@ -1,0 +1,87 @@
+openapi: 3.1.0
+info:
+  title: GitHub Enterprise Cloud REST Actions Enterprise Admin API
+  version: '2026-05-23'
+  description: 'Best-effort OpenAPI 3.1 description of representative GitHub Enterprise
+
+    Cloud REST API endpoints across repositories, issues, pull requests,
+
+    actions, organizations, enterprises (admin / audit log), code scanning,
+
+    SCIM, and users. The full surface is documented at
+
+    https://docs.github.com/en/enterprise-cloud@latest/rest. For GitHub
+
+    Enterprise Server, the same paths are served under /api/v3 on the
+
+    customer''s domain.
+
+    '
+  contact:
+    name: GitHub Enterprise REST API
+    url: https://docs.github.com/en/enterprise-cloud@latest/rest
+servers:
+- url: https://api.github.com
+  description: GitHub Enterprise Cloud
+- url: https://{hostname}/api/v3
+  description: GitHub Enterprise Server (self-hosted)
+  variables:
+    hostname:
+      default: github.example.com
+security:
+- bearerAuth: []
+- patAuth: []
+tags:
+- name: Enterprise Admin
+paths:
+  /enterprises/{enterprise}/audit-log:
+    parameters:
+    - in: path
+      name: enterprise
+      required: true
+      schema:
+        type: string
+    get:
+      summary: Get the audit log for an enterprise
+      operationId: getEnterpriseAuditLog
+      tags:
+      - Enterprise Admin
+      parameters:
+      - in: query
+        name: phrase
+        schema:
+          type: string
+      - in: query
+        name: include
+        schema:
+          type: string
+          enum:
+          - web
+          - git
+          - all
+      - in: query
+        name: per_page
+        schema:
+          type: integer
+          default: 30
+      responses:
+        '200':
+          description: Audit log events
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  additionalProperties: true
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: GitHub Token (PAT or App installation token)
+    patAuth:
+      type: apiKey
+      in: header
+      name: Authorization
+      description: Use "token YOUR_PAT" for classic personal access tokens.

@@ -1,0 +1,143 @@
+openapi: 3.1.0
+info:
+  title: GitHub Enterprise Cloud REST Actions API
+  version: '2026-05-23'
+  description: 'Best-effort OpenAPI 3.1 description of representative GitHub Enterprise
+
+    Cloud REST API endpoints across repositories, issues, pull requests,
+
+    actions, organizations, enterprises (admin / audit log), code scanning,
+
+    SCIM, and users. The full surface is documented at
+
+    https://docs.github.com/en/enterprise-cloud@latest/rest. For GitHub
+
+    Enterprise Server, the same paths are served under /api/v3 on the
+
+    customer''s domain.
+
+    '
+  contact:
+    name: GitHub Enterprise REST API
+    url: https://docs.github.com/en/enterprise-cloud@latest/rest
+servers:
+- url: https://api.github.com
+  description: GitHub Enterprise Cloud
+- url: https://{hostname}/api/v3
+  description: GitHub Enterprise Server (self-hosted)
+  variables:
+    hostname:
+      default: github.example.com
+security:
+- bearerAuth: []
+- patAuth: []
+tags:
+- name: Actions
+paths:
+  /repos/{owner}/{repo}/actions/workflows:
+    parameters:
+    - $ref: '#/components/parameters/Owner'
+    - $ref: '#/components/parameters/Repo'
+    get:
+      summary: List repository workflows
+      operationId: listWorkflows
+      tags:
+      - Actions
+      responses:
+        '200':
+          description: Workflows
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  total_count:
+                    type: integer
+                  workflows:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Workflow'
+  /repos/{owner}/{repo}/actions/runs:
+    parameters:
+    - $ref: '#/components/parameters/Owner'
+    - $ref: '#/components/parameters/Repo'
+    get:
+      summary: List workflow runs for a repository
+      operationId: listWorkflowRuns
+      tags:
+      - Actions
+      parameters:
+      - in: query
+        name: status
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Workflow runs
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  total_count:
+                    type: integer
+                  workflow_runs:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/WorkflowRun'
+components:
+  parameters:
+    Repo:
+      in: path
+      name: repo
+      required: true
+      schema:
+        type: string
+    Owner:
+      in: path
+      name: owner
+      required: true
+      schema:
+        type: string
+  schemas:
+    Workflow:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        path:
+          type: string
+        state:
+          type: string
+    WorkflowRun:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        head_branch:
+          type: string
+        head_sha:
+          type: string
+        status:
+          type: string
+        conclusion:
+          type: string
+        workflow_id:
+          type: integer
+        created_at:
+          type: string
+          format: date-time
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: GitHub Token (PAT or App installation token)
+    patAuth:
+      type: apiKey
+      in: header
+      name: Authorization
+      description: Use "token YOUR_PAT" for classic personal access tokens.

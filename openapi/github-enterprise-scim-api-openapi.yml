@@ -1,0 +1,89 @@
+openapi: 3.1.0
+info:
+  title: GitHub Enterprise Cloud REST Actions SCIM API
+  version: '2026-05-23'
+  description: 'Best-effort OpenAPI 3.1 description of representative GitHub Enterprise
+
+    Cloud REST API endpoints across repositories, issues, pull requests,
+
+    actions, organizations, enterprises (admin / audit log), code scanning,
+
+    SCIM, and users. The full surface is documented at
+
+    https://docs.github.com/en/enterprise-cloud@latest/rest. For GitHub
+
+    Enterprise Server, the same paths are served under /api/v3 on the
+
+    customer''s domain.
+
+    '
+  contact:
+    name: GitHub Enterprise REST API
+    url: https://docs.github.com/en/enterprise-cloud@latest/rest
+servers:
+- url: https://api.github.com
+  description: GitHub Enterprise Cloud
+- url: https://{hostname}/api/v3
+  description: GitHub Enterprise Server (self-hosted)
+  variables:
+    hostname:
+      default: github.example.com
+security:
+- bearerAuth: []
+- patAuth: []
+tags:
+- name: SCIM
+paths:
+  /scim/v2/enterprises/{enterprise}/Users:
+    parameters:
+    - in: path
+      name: enterprise
+      required: true
+      schema:
+        type: string
+    get:
+      summary: List SCIM users for an enterprise
+      operationId: listScimUsers
+      tags:
+      - SCIM
+      responses:
+        '200':
+          description: SCIM users
+          content:
+            application/scim+json:
+              schema:
+                type: object
+                properties:
+                  totalResults:
+                    type: integer
+                  Resources:
+                    type: array
+                    items:
+                      type: object
+                      additionalProperties: true
+    post:
+      summary: Provision a SCIM user
+      operationId: createScimUser
+      tags:
+      - SCIM
+      requestBody:
+        required: true
+        content:
+          application/scim+json:
+            schema:
+              type: object
+              additionalProperties: true
+      responses:
+        '201':
+          description: Created
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: GitHub Token (PAT or App installation token)
+    patAuth:
+      type: apiKey
+      in: header
+      name: Authorization
+      description: Use "token YOUR_PAT" for classic personal access tokens.

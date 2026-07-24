@@ -1,0 +1,198 @@
+openapi: 3.1.0
+info:
+  title: GitHub Enterprise Cloud REST Actions Repositories API
+  version: '2026-05-23'
+  description: 'Best-effort OpenAPI 3.1 description of representative GitHub Enterprise
+
+    Cloud REST API endpoints across repositories, issues, pull requests,
+
+    actions, organizations, enterprises (admin / audit log), code scanning,
+
+    SCIM, and users. The full surface is documented at
+
+    https://docs.github.com/en/enterprise-cloud@latest/rest. For GitHub
+
+    Enterprise Server, the same paths are served under /api/v3 on the
+
+    customer''s domain.
+
+    '
+  contact:
+    name: GitHub Enterprise REST API
+    url: https://docs.github.com/en/enterprise-cloud@latest/rest
+servers:
+- url: https://api.github.com
+  description: GitHub Enterprise Cloud
+- url: https://{hostname}/api/v3
+  description: GitHub Enterprise Server (self-hosted)
+  variables:
+    hostname:
+      default: github.example.com
+security:
+- bearerAuth: []
+- patAuth: []
+tags:
+- name: Repositories
+paths:
+  /orgs/{org}/repos:
+    parameters:
+    - $ref: '#/components/parameters/Org'
+    get:
+      summary: List organization repositories
+      operationId: listOrgRepos
+      tags:
+      - Repositories
+      parameters:
+      - $ref: '#/components/parameters/PerPage'
+      - $ref: '#/components/parameters/Page'
+      responses:
+        '200':
+          description: Repositories
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Repository'
+    post:
+      summary: Create an organization repository
+      operationId: createOrgRepo
+      tags:
+      - Repositories
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - name
+              properties:
+                name:
+                  type: string
+                private:
+                  type: boolean
+                description:
+                  type: string
+                auto_init:
+                  type: boolean
+      responses:
+        '201':
+          description: Created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Repository'
+  /repos/{owner}/{repo}:
+    parameters:
+    - $ref: '#/components/parameters/Owner'
+    - $ref: '#/components/parameters/Repo'
+    get:
+      summary: Get a repository
+      operationId: getRepo
+      tags:
+      - Repositories
+      responses:
+        '200':
+          description: Repository
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Repository'
+    delete:
+      summary: Delete a repository
+      operationId: deleteRepo
+      tags:
+      - Repositories
+      responses:
+        '204':
+          description: Deleted
+components:
+  parameters:
+    PerPage:
+      in: query
+      name: per_page
+      schema:
+        type: integer
+        minimum: 1
+        maximum: 100
+        default: 30
+    Owner:
+      in: path
+      name: owner
+      required: true
+      schema:
+        type: string
+    Org:
+      in: path
+      name: org
+      required: true
+      schema:
+        type: string
+    Page:
+      in: query
+      name: page
+      schema:
+        type: integer
+        minimum: 1
+        default: 1
+    Repo:
+      in: path
+      name: repo
+      required: true
+      schema:
+        type: string
+  schemas:
+    User:
+      type: object
+      properties:
+        id:
+          type: integer
+        login:
+          type: string
+        name:
+          type: string
+        email:
+          type: string
+          format: email
+        avatar_url:
+          type: string
+          format: uri
+        html_url:
+          type: string
+          format: uri
+        type:
+          type: string
+    Repository:
+      type: object
+      properties:
+        id:
+          type: integer
+        node_id:
+          type: string
+        name:
+          type: string
+        full_name:
+          type: string
+        private:
+          type: boolean
+        owner:
+          $ref: '#/components/schemas/User'
+        html_url:
+          type: string
+          format: uri
+        default_branch:
+          type: string
+        created_at:
+          type: string
+          format: date-time
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: GitHub Token (PAT or App installation token)
+    patAuth:
+      type: apiKey
+      in: header
+      name: Authorization
+      description: Use "token YOUR_PAT" for classic personal access tokens.

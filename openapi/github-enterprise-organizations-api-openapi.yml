@@ -1,0 +1,92 @@
+openapi: 3.1.0
+info:
+  title: GitHub Enterprise Cloud REST Actions Organizations API
+  version: '2026-05-23'
+  description: 'Best-effort OpenAPI 3.1 description of representative GitHub Enterprise
+
+    Cloud REST API endpoints across repositories, issues, pull requests,
+
+    actions, organizations, enterprises (admin / audit log), code scanning,
+
+    SCIM, and users. The full surface is documented at
+
+    https://docs.github.com/en/enterprise-cloud@latest/rest. For GitHub
+
+    Enterprise Server, the same paths are served under /api/v3 on the
+
+    customer''s domain.
+
+    '
+  contact:
+    name: GitHub Enterprise REST API
+    url: https://docs.github.com/en/enterprise-cloud@latest/rest
+servers:
+- url: https://api.github.com
+  description: GitHub Enterprise Cloud
+- url: https://{hostname}/api/v3
+  description: GitHub Enterprise Server (self-hosted)
+  variables:
+    hostname:
+      default: github.example.com
+security:
+- bearerAuth: []
+- patAuth: []
+tags:
+- name: Organizations
+paths:
+  /orgs/{org}:
+    parameters:
+    - $ref: '#/components/parameters/Org'
+    get:
+      summary: Get an organization
+      operationId: getOrg
+      tags:
+      - Organizations
+      responses:
+        '200':
+          description: Organization
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Organization'
+components:
+  schemas:
+    Organization:
+      type: object
+      properties:
+        id:
+          type: integer
+        login:
+          type: string
+        description:
+          type: string
+        company:
+          type: string
+        public_repos:
+          type: integer
+        plan:
+          type: object
+          properties:
+            name:
+              type: string
+            seats:
+              type: integer
+            filled_seats:
+              type: integer
+  parameters:
+    Org:
+      in: path
+      name: org
+      required: true
+      schema:
+        type: string
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: GitHub Token (PAT or App installation token)
+    patAuth:
+      type: apiKey
+      in: header
+      name: Authorization
+      description: Use "token YOUR_PAT" for classic personal access tokens.

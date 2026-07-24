@@ -1,0 +1,189 @@
+openapi: 3.1.0
+info:
+  title: GitHub Enterprise Cloud REST Actions Issues API
+  version: '2026-05-23'
+  description: 'Best-effort OpenAPI 3.1 description of representative GitHub Enterprise
+
+    Cloud REST API endpoints across repositories, issues, pull requests,
+
+    actions, organizations, enterprises (admin / audit log), code scanning,
+
+    SCIM, and users. The full surface is documented at
+
+    https://docs.github.com/en/enterprise-cloud@latest/rest. For GitHub
+
+    Enterprise Server, the same paths are served under /api/v3 on the
+
+    customer''s domain.
+
+    '
+  contact:
+    name: GitHub Enterprise REST API
+    url: https://docs.github.com/en/enterprise-cloud@latest/rest
+servers:
+- url: https://api.github.com
+  description: GitHub Enterprise Cloud
+- url: https://{hostname}/api/v3
+  description: GitHub Enterprise Server (self-hosted)
+  variables:
+    hostname:
+      default: github.example.com
+security:
+- bearerAuth: []
+- patAuth: []
+tags:
+- name: Issues
+paths:
+  /repos/{owner}/{repo}/issues:
+    parameters:
+    - $ref: '#/components/parameters/Owner'
+    - $ref: '#/components/parameters/Repo'
+    get:
+      summary: List repository issues
+      operationId: listIssues
+      tags:
+      - Issues
+      parameters:
+      - in: query
+        name: state
+        schema:
+          type: string
+          enum:
+          - open
+          - closed
+          - all
+          default: open
+      - $ref: '#/components/parameters/PerPage'
+      - $ref: '#/components/parameters/Page'
+      responses:
+        '200':
+          description: Issues
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Issue'
+    post:
+      summary: Create an issue
+      operationId: createIssue
+      tags:
+      - Issues
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - title
+              properties:
+                title:
+                  type: string
+                body:
+                  type: string
+                labels:
+                  type: array
+                  items:
+                    type: string
+                assignees:
+                  type: array
+                  items:
+                    type: string
+      responses:
+        '201':
+          description: Created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Issue'
+components:
+  parameters:
+    PerPage:
+      in: query
+      name: per_page
+      schema:
+        type: integer
+        minimum: 1
+        maximum: 100
+        default: 30
+    Owner:
+      in: path
+      name: owner
+      required: true
+      schema:
+        type: string
+    Page:
+      in: query
+      name: page
+      schema:
+        type: integer
+        minimum: 1
+        default: 1
+    Repo:
+      in: path
+      name: repo
+      required: true
+      schema:
+        type: string
+  schemas:
+    User:
+      type: object
+      properties:
+        id:
+          type: integer
+        login:
+          type: string
+        name:
+          type: string
+        email:
+          type: string
+          format: email
+        avatar_url:
+          type: string
+          format: uri
+        html_url:
+          type: string
+          format: uri
+        type:
+          type: string
+    Issue:
+      type: object
+      properties:
+        id:
+          type: integer
+        number:
+          type: integer
+        title:
+          type: string
+        state:
+          type: string
+          enum:
+          - open
+          - closed
+        user:
+          $ref: '#/components/schemas/User'
+        labels:
+          type: array
+          items:
+            type: object
+            properties:
+              name:
+                type: string
+              color:
+                type: string
+        body:
+          type: string
+        created_at:
+          type: string
+          format: date-time
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: GitHub Token (PAT or App installation token)
+    patAuth:
+      type: apiKey
+      in: header
+      name: Authorization
+      description: Use "token YOUR_PAT" for classic personal access tokens.

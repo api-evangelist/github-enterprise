@@ -1,0 +1,167 @@
+openapi: 3.1.0
+info:
+  title: GitHub Enterprise Cloud REST Actions Pull Requests API
+  version: '2026-05-23'
+  description: 'Best-effort OpenAPI 3.1 description of representative GitHub Enterprise
+
+    Cloud REST API endpoints across repositories, issues, pull requests,
+
+    actions, organizations, enterprises (admin / audit log), code scanning,
+
+    SCIM, and users. The full surface is documented at
+
+    https://docs.github.com/en/enterprise-cloud@latest/rest. For GitHub
+
+    Enterprise Server, the same paths are served under /api/v3 on the
+
+    customer''s domain.
+
+    '
+  contact:
+    name: GitHub Enterprise REST API
+    url: https://docs.github.com/en/enterprise-cloud@latest/rest
+servers:
+- url: https://api.github.com
+  description: GitHub Enterprise Cloud
+- url: https://{hostname}/api/v3
+  description: GitHub Enterprise Server (self-hosted)
+  variables:
+    hostname:
+      default: github.example.com
+security:
+- bearerAuth: []
+- patAuth: []
+tags:
+- name: Pull Requests
+paths:
+  /repos/{owner}/{repo}/pulls:
+    parameters:
+    - $ref: '#/components/parameters/Owner'
+    - $ref: '#/components/parameters/Repo'
+    get:
+      summary: List pull requests
+      operationId: listPullRequests
+      tags:
+      - Pull Requests
+      parameters:
+      - in: query
+        name: state
+        schema:
+          type: string
+          enum:
+          - open
+          - closed
+          - all
+          default: open
+      - $ref: '#/components/parameters/PerPage'
+      - $ref: '#/components/parameters/Page'
+      responses:
+        '200':
+          description: Pull requests
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/PullRequest'
+    post:
+      summary: Create a pull request
+      operationId: createPullRequest
+      tags:
+      - Pull Requests
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - title
+              - head
+              - base
+              properties:
+                title:
+                  type: string
+                head:
+                  type: string
+                base:
+                  type: string
+                body:
+                  type: string
+                draft:
+                  type: boolean
+      responses:
+        '201':
+          description: Created
+components:
+  parameters:
+    PerPage:
+      in: query
+      name: per_page
+      schema:
+        type: integer
+        minimum: 1
+        maximum: 100
+        default: 30
+    Owner:
+      in: path
+      name: owner
+      required: true
+      schema:
+        type: string
+    Page:
+      in: query
+      name: page
+      schema:
+        type: integer
+        minimum: 1
+        default: 1
+    Repo:
+      in: path
+      name: repo
+      required: true
+      schema:
+        type: string
+  schemas:
+    PullRequest:
+      type: object
+      properties:
+        id:
+          type: integer
+        number:
+          type: integer
+        title:
+          type: string
+        state:
+          type: string
+          enum:
+          - open
+          - closed
+        draft:
+          type: boolean
+        head:
+          type: object
+          properties:
+            ref:
+              type: string
+            sha:
+              type: string
+        base:
+          type: object
+          properties:
+            ref:
+              type: string
+            sha:
+              type: string
+        merged:
+          type: boolean
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: GitHub Token (PAT or App installation token)
+    patAuth:
+      type: apiKey
+      in: header
+      name: Authorization
+      description: Use "token YOUR_PAT" for classic personal access tokens.
