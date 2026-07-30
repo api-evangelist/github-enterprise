@@ -12,7 +12,19 @@ description: >-
   SCIM, and admin operations, authenticated with personal access tokens or
   GitHub App tokens.
 type: Index
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+accessModel:
+  pricing: unknown
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Self-serve signup
+  confidence: medium
+  source:
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/github-enterprise.png
 tags:
 - Source Control
 - DevOps
@@ -29,55 +41,213 @@ created: '2026-05-11'
 modified: '2026-05-11'
 specificationVersion: '0.19'
 apis:
-- aid: github-enterprise:cloud-rest-api
-  name: GitHub Enterprise Cloud REST API
-  description: >-
-    Hosted GitHub Enterprise Cloud REST API. Provides full access to
-    repositories, issues, pull requests, GitHub Actions, packages, code
-    scanning, secret scanning, Dependabot, audit log, SCIM provisioning,
-    and enterprise admin endpoints. Authentication via fine-grained personal
-    access tokens, GitHub App installation tokens, or OAuth.
+- aid: github-enterprise:github-enterprise-actions-api
+  name: GitHub Enterprise Actions API
+  description: The Actions API from GitHub Enterprise — 2 operation(s) for actions.
   humanURL: https://docs.github.com/en/enterprise-cloud@latest/rest
   baseURL: https://api.github.com
   tags:
-  - REST
-  - Source Control
-  - Enterprise Cloud
-  - SCIM
-  - Audit Log
+  - Actions
   properties:
+  - type: OpenAPI
+    url: openapi/github-enterprise-actions-api-openapi.yml
   - type: Documentation
     url: https://docs.github.com/en/enterprise-cloud@latest/rest
-  - type: OpenAPI
-    url: https://github.com/github/rest-api-description
   - type: Authentication
-    url: https://docs.github.com/en/enterprise-cloud@latest/rest/overview/authenticating-to-the-rest-api
+    url: >-
+      https://docs.github.com/en/enterprise-cloud@latest/rest/overview/authenticating-to-the-rest-api
   - type: GraphQL API
     url: https://docs.github.com/en/enterprise-cloud@latest/graphql
-  - url: graphql/github-enterprise-graphql.md
-    type: GraphQL
-- aid: github-enterprise:server-rest-api
-  name: GitHub Enterprise Server REST API
-  description: >-
-    Self-hosted GitHub Enterprise Server REST API served from a customer's
-    own hostname under /api/v3. Per-version OpenAPI descriptions are
-    published for each GHES release (ghes-X.X) alongside the hosted GHEC
-    and api.github.com descriptions in github/rest-api-description.
-  humanURL: https://docs.github.com/en/enterprise-server@latest/rest
-  baseURL: https://HOSTNAME/api/v3
-  tags:
-  - REST
-  - Self-Hosted
-  - Enterprise Server
-  - On-Premises
-  properties:
+  - type: GraphQL
+    url: graphql/github-enterprise-graphql.md
   - type: Documentation
     url: https://docs.github.com/en/enterprise-server@latest/rest
-  - type: OpenAPI
-    url: https://github.com/github/rest-api-description
   - type: GraphQL API
     url: https://docs.github.com/en/enterprise-server@latest/graphql
-
+- aid: github-enterprise:github-enterprise-code-scanning-api
+  name: GitHub Enterprise Code Scanning API
+  description: The Code Scanning API from GitHub Enterprise — 1 operation(s) for code scanning.
+  humanURL: https://docs.github.com/en/enterprise-cloud@latest/rest
+  baseURL: https://api.github.com
+  tags:
+  - Code Scanning
+  properties:
+  - type: OpenAPI
+    url: openapi/github-enterprise-code-scanning-api-openapi.yml
+  - type: Documentation
+    url: https://docs.github.com/en/enterprise-cloud@latest/rest
+  - type: Authentication
+    url: >-
+      https://docs.github.com/en/enterprise-cloud@latest/rest/overview/authenticating-to-the-rest-api
+  - type: GraphQL API
+    url: https://docs.github.com/en/enterprise-cloud@latest/graphql
+  - type: GraphQL
+    url: graphql/github-enterprise-graphql.md
+  - type: Documentation
+    url: https://docs.github.com/en/enterprise-server@latest/rest
+  - type: GraphQL API
+    url: https://docs.github.com/en/enterprise-server@latest/graphql
+- aid: github-enterprise:github-enterprise-enterprise-admin-api
+  name: GitHub Enterprise Enterprise Admin API
+  description: The Enterprise Admin API from GitHub Enterprise — 1 operation(s) for enterprise admin.
+  humanURL: https://docs.github.com/en/enterprise-cloud@latest/rest
+  baseURL: https://api.github.com
+  tags:
+  - Enterprise Admin
+  properties:
+  - type: OpenAPI
+    url: openapi/github-enterprise-enterprise-admin-api-openapi.yml
+  - type: Documentation
+    url: https://docs.github.com/en/enterprise-cloud@latest/rest
+  - type: Authentication
+    url: >-
+      https://docs.github.com/en/enterprise-cloud@latest/rest/overview/authenticating-to-the-rest-api
+  - type: GraphQL API
+    url: https://docs.github.com/en/enterprise-cloud@latest/graphql
+  - type: GraphQL
+    url: graphql/github-enterprise-graphql.md
+  - type: Documentation
+    url: https://docs.github.com/en/enterprise-server@latest/rest
+  - type: GraphQL API
+    url: https://docs.github.com/en/enterprise-server@latest/graphql
+- aid: github-enterprise:github-enterprise-issues-api
+  name: GitHub Enterprise Issues API
+  description: The Issues API from GitHub Enterprise — 1 operation(s) for issues.
+  humanURL: https://docs.github.com/en/enterprise-cloud@latest/rest
+  baseURL: https://api.github.com
+  tags:
+  - Issues
+  properties:
+  - type: OpenAPI
+    url: openapi/github-enterprise-issues-api-openapi.yml
+  - type: Documentation
+    url: https://docs.github.com/en/enterprise-cloud@latest/rest
+  - type: Authentication
+    url: >-
+      https://docs.github.com/en/enterprise-cloud@latest/rest/overview/authenticating-to-the-rest-api
+  - type: GraphQL API
+    url: https://docs.github.com/en/enterprise-cloud@latest/graphql
+  - type: GraphQL
+    url: graphql/github-enterprise-graphql.md
+  - type: Documentation
+    url: https://docs.github.com/en/enterprise-server@latest/rest
+  - type: GraphQL API
+    url: https://docs.github.com/en/enterprise-server@latest/graphql
+- aid: github-enterprise:github-enterprise-organizations-api
+  name: GitHub Enterprise Organizations API
+  description: The Organizations API from GitHub Enterprise — 1 operation(s) for organizations.
+  humanURL: https://docs.github.com/en/enterprise-cloud@latest/rest
+  baseURL: https://api.github.com
+  tags:
+  - Organizations
+  properties:
+  - type: OpenAPI
+    url: openapi/github-enterprise-organizations-api-openapi.yml
+  - type: Documentation
+    url: https://docs.github.com/en/enterprise-cloud@latest/rest
+  - type: Authentication
+    url: >-
+      https://docs.github.com/en/enterprise-cloud@latest/rest/overview/authenticating-to-the-rest-api
+  - type: GraphQL API
+    url: https://docs.github.com/en/enterprise-cloud@latest/graphql
+  - type: GraphQL
+    url: graphql/github-enterprise-graphql.md
+  - type: Documentation
+    url: https://docs.github.com/en/enterprise-server@latest/rest
+  - type: GraphQL API
+    url: https://docs.github.com/en/enterprise-server@latest/graphql
+- aid: github-enterprise:github-enterprise-pull-requests-api
+  name: GitHub Enterprise Pull Requests API
+  description: The Pull Requests API from GitHub Enterprise — 1 operation(s) for pull requests.
+  humanURL: https://docs.github.com/en/enterprise-cloud@latest/rest
+  baseURL: https://api.github.com
+  tags:
+  - Pull Requests
+  properties:
+  - type: OpenAPI
+    url: openapi/github-enterprise-pull-requests-api-openapi.yml
+  - type: Documentation
+    url: https://docs.github.com/en/enterprise-cloud@latest/rest
+  - type: Authentication
+    url: >-
+      https://docs.github.com/en/enterprise-cloud@latest/rest/overview/authenticating-to-the-rest-api
+  - type: GraphQL API
+    url: https://docs.github.com/en/enterprise-cloud@latest/graphql
+  - type: GraphQL
+    url: graphql/github-enterprise-graphql.md
+  - type: Documentation
+    url: https://docs.github.com/en/enterprise-server@latest/rest
+  - type: GraphQL API
+    url: https://docs.github.com/en/enterprise-server@latest/graphql
+- aid: github-enterprise:github-enterprise-repositories-api
+  name: GitHub Enterprise Repositories API
+  description: The Repositories API from GitHub Enterprise — 2 operation(s) for repositories.
+  humanURL: https://docs.github.com/en/enterprise-cloud@latest/rest
+  baseURL: https://api.github.com
+  tags:
+  - Repositories
+  properties:
+  - type: OpenAPI
+    url: openapi/github-enterprise-repositories-api-openapi.yml
+  - type: Documentation
+    url: https://docs.github.com/en/enterprise-cloud@latest/rest
+  - type: Authentication
+    url: >-
+      https://docs.github.com/en/enterprise-cloud@latest/rest/overview/authenticating-to-the-rest-api
+  - type: GraphQL API
+    url: https://docs.github.com/en/enterprise-cloud@latest/graphql
+  - type: GraphQL
+    url: graphql/github-enterprise-graphql.md
+  - type: Documentation
+    url: https://docs.github.com/en/enterprise-server@latest/rest
+  - type: GraphQL API
+    url: https://docs.github.com/en/enterprise-server@latest/graphql
+- aid: github-enterprise:github-enterprise-scim-api
+  name: GitHub Enterprise SCIM API
+  description: The SCIM API from GitHub Enterprise — 1 operation(s) for scim.
+  humanURL: https://docs.github.com/en/enterprise-cloud@latest/rest
+  baseURL: https://api.github.com
+  tags:
+  - SCIM
+  properties:
+  - type: OpenAPI
+    url: openapi/github-enterprise-scim-api-openapi.yml
+  - type: Documentation
+    url: https://docs.github.com/en/enterprise-cloud@latest/rest
+  - type: Authentication
+    url: >-
+      https://docs.github.com/en/enterprise-cloud@latest/rest/overview/authenticating-to-the-rest-api
+  - type: GraphQL API
+    url: https://docs.github.com/en/enterprise-cloud@latest/graphql
+  - type: GraphQL
+    url: graphql/github-enterprise-graphql.md
+  - type: Documentation
+    url: https://docs.github.com/en/enterprise-server@latest/rest
+  - type: GraphQL API
+    url: https://docs.github.com/en/enterprise-server@latest/graphql
+- aid: github-enterprise:github-enterprise-users-api
+  name: GitHub Enterprise Users API
+  description: The Users API from GitHub Enterprise — 2 operation(s) for users.
+  humanURL: https://docs.github.com/en/enterprise-cloud@latest/rest
+  baseURL: https://api.github.com
+  tags:
+  - Users
+  properties:
+  - type: OpenAPI
+    url: openapi/github-enterprise-users-api-openapi.yml
+  - type: Documentation
+    url: https://docs.github.com/en/enterprise-cloud@latest/rest
+  - type: Authentication
+    url: >-
+      https://docs.github.com/en/enterprise-cloud@latest/rest/overview/authenticating-to-the-rest-api
+  - type: GraphQL API
+    url: https://docs.github.com/en/enterprise-cloud@latest/graphql
+  - type: GraphQL
+    url: graphql/github-enterprise-graphql.md
+  - type: Documentation
+    url: https://docs.github.com/en/enterprise-server@latest/rest
+  - type: GraphQL API
+    url: https://docs.github.com/en/enterprise-server@latest/graphql
 common:
 - type: AgenticAccess
   url: agentic-access/github-enterprise-agentic-access.yml
