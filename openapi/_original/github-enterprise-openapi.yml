@@ -1,0 +1,474 @@
+openapi: 3.1.0
+info:
+  title: GitHub Enterprise Cloud REST API
+  version: "2026-05-23"
+  description: |
+    Best-effort OpenAPI 3.1 description of representative GitHub Enterprise
+    Cloud REST API endpoints across repositories, issues, pull requests,
+    actions, organizations, enterprises (admin / audit log), code scanning,
+    SCIM, and users. The full surface is documented at
+    https://docs.github.com/en/enterprise-cloud@latest/rest. For GitHub
+    Enterprise Server, the same paths are served under /api/v3 on the
+    customer's domain.
+  contact:
+    name: GitHub Enterprise REST API
+    url: https://docs.github.com/en/enterprise-cloud@latest/rest
+servers:
+  - url: https://api.github.com
+    description: GitHub Enterprise Cloud
+  - url: https://{hostname}/api/v3
+    description: GitHub Enterprise Server (self-hosted)
+    variables:
+      hostname:
+        default: github.example.com
+security:
+  - bearerAuth: []
+  - patAuth: []
+paths:
+  /user:
+    get:
+      summary: Get the authenticated user
+      operationId: getAuthenticatedUser
+      tags: [Users]
+      responses:
+        "200":
+          description: User
+          content:
+            application/json:
+              schema: { $ref: "#/components/schemas/User" }
+  /users/{username}:
+    parameters:
+      - $ref: "#/components/parameters/Username"
+    get:
+      summary: Get a user
+      operationId: getUser
+      tags: [Users]
+      responses:
+        "200":
+          description: User
+          content:
+            application/json:
+              schema: { $ref: "#/components/schemas/User" }
+  /orgs/{org}:
+    parameters:
+      - $ref: "#/components/parameters/Org"
+    get:
+      summary: Get an organization
+      operationId: getOrg
+      tags: [Organizations]
+      responses:
+        "200":
+          description: Organization
+          content:
+            application/json:
+              schema: { $ref: "#/components/schemas/Organization" }
+  /orgs/{org}/repos:
+    parameters:
+      - $ref: "#/components/parameters/Org"
+    get:
+      summary: List organization repositories
+      operationId: listOrgRepos
+      tags: [Repositories]
+      parameters:
+        - $ref: "#/components/parameters/PerPage"
+        - $ref: "#/components/parameters/Page"
+      responses:
+        "200":
+          description: Repositories
+          content:
+            application/json:
+              schema:
+                type: array
+                items: { $ref: "#/components/schemas/Repository" }
+    post:
+      summary: Create an organization repository
+      operationId: createOrgRepo
+      tags: [Repositories]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [name]
+              properties:
+                name: { type: string }
+                private: { type: boolean }
+                description: { type: string }
+                auto_init: { type: boolean }
+      responses:
+        "201":
+          description: Created
+          content:
+            application/json:
+              schema: { $ref: "#/components/schemas/Repository" }
+  /repos/{owner}/{repo}:
+    parameters: [{ $ref: "#/components/parameters/Owner" }, { $ref: "#/components/parameters/Repo" }]
+    get:
+      summary: Get a repository
+      operationId: getRepo
+      tags: [Repositories]
+      responses:
+        "200":
+          description: Repository
+          content:
+            application/json:
+              schema: { $ref: "#/components/schemas/Repository" }
+    delete:
+      summary: Delete a repository
+      operationId: deleteRepo
+      tags: [Repositories]
+      responses:
+        "204":
+          description: Deleted
+  /repos/{owner}/{repo}/issues:
+    parameters: [{ $ref: "#/components/parameters/Owner" }, { $ref: "#/components/parameters/Repo" }]
+    get:
+      summary: List repository issues
+      operationId: listIssues
+      tags: [Issues]
+      parameters:
+        - in: query
+          name: state
+          schema: { type: string, enum: [open, closed, all], default: open }
+        - $ref: "#/components/parameters/PerPage"
+        - $ref: "#/components/parameters/Page"
+      responses:
+        "200":
+          description: Issues
+          content:
+            application/json:
+              schema:
+                type: array
+                items: { $ref: "#/components/schemas/Issue" }
+    post:
+      summary: Create an issue
+      operationId: createIssue
+      tags: [Issues]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [title]
+              properties:
+                title: { type: string }
+                body: { type: string }
+                labels:
+                  type: array
+                  items: { type: string }
+                assignees:
+                  type: array
+                  items: { type: string }
+      responses:
+        "201":
+          description: Created
+          content:
+            application/json:
+              schema: { $ref: "#/components/schemas/Issue" }
+  /repos/{owner}/{repo}/pulls:
+    parameters: [{ $ref: "#/components/parameters/Owner" }, { $ref: "#/components/parameters/Repo" }]
+    get:
+      summary: List pull requests
+      operationId: listPullRequests
+      tags: [Pull Requests]
+      parameters:
+        - in: query
+          name: state
+          schema: { type: string, enum: [open, closed, all], default: open }
+        - $ref: "#/components/parameters/PerPage"
+        - $ref: "#/components/parameters/Page"
+      responses:
+        "200":
+          description: Pull requests
+          content:
+            application/json:
+              schema:
+                type: array
+                items: { $ref: "#/components/schemas/PullRequest" }
+    post:
+      summary: Create a pull request
+      operationId: createPullRequest
+      tags: [Pull Requests]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [title, head, base]
+              properties:
+                title: { type: string }
+                head: { type: string }
+                base: { type: string }
+                body: { type: string }
+                draft: { type: boolean }
+      responses:
+        "201":
+          description: Created
+  /repos/{owner}/{repo}/actions/workflows:
+    parameters: [{ $ref: "#/components/parameters/Owner" }, { $ref: "#/components/parameters/Repo" }]
+    get:
+      summary: List repository workflows
+      operationId: listWorkflows
+      tags: [Actions]
+      responses:
+        "200":
+          description: Workflows
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  total_count: { type: integer }
+                  workflows:
+                    type: array
+                    items: { $ref: "#/components/schemas/Workflow" }
+  /repos/{owner}/{repo}/actions/runs:
+    parameters: [{ $ref: "#/components/parameters/Owner" }, { $ref: "#/components/parameters/Repo" }]
+    get:
+      summary: List workflow runs for a repository
+      operationId: listWorkflowRuns
+      tags: [Actions]
+      parameters:
+        - in: query
+          name: status
+          schema: { type: string }
+      responses:
+        "200":
+          description: Workflow runs
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  total_count: { type: integer }
+                  workflow_runs:
+                    type: array
+                    items: { $ref: "#/components/schemas/WorkflowRun" }
+  /repos/{owner}/{repo}/code-scanning/alerts:
+    parameters: [{ $ref: "#/components/parameters/Owner" }, { $ref: "#/components/parameters/Repo" }]
+    get:
+      summary: List code-scanning alerts for a repository
+      operationId: listCodeScanningAlerts
+      tags: [Code Scanning]
+      responses:
+        "200":
+          description: Alerts
+          content:
+            application/json:
+              schema:
+                type: array
+                items: { $ref: "#/components/schemas/CodeScanningAlert" }
+  /enterprises/{enterprise}/audit-log:
+    parameters:
+      - in: path
+        name: enterprise
+        required: true
+        schema: { type: string }
+    get:
+      summary: Get the audit log for an enterprise
+      operationId: getEnterpriseAuditLog
+      tags: [Enterprise Admin]
+      parameters:
+        - in: query
+          name: phrase
+          schema: { type: string }
+        - in: query
+          name: include
+          schema: { type: string, enum: [web, git, all] }
+        - in: query
+          name: per_page
+          schema: { type: integer, default: 30 }
+      responses:
+        "200":
+          description: Audit log events
+          content:
+            application/json:
+              schema:
+                type: array
+                items: { type: object, additionalProperties: true }
+  /scim/v2/enterprises/{enterprise}/Users:
+    parameters:
+      - in: path
+        name: enterprise
+        required: true
+        schema: { type: string }
+    get:
+      summary: List SCIM users for an enterprise
+      operationId: listScimUsers
+      tags: [SCIM]
+      responses:
+        "200":
+          description: SCIM users
+          content:
+            application/scim+json:
+              schema:
+                type: object
+                properties:
+                  totalResults: { type: integer }
+                  Resources:
+                    type: array
+                    items: { type: object, additionalProperties: true }
+    post:
+      summary: Provision a SCIM user
+      operationId: createScimUser
+      tags: [SCIM]
+      requestBody:
+        required: true
+        content:
+          application/scim+json:
+            schema:
+              type: object
+              additionalProperties: true
+      responses:
+        "201":
+          description: Created
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: GitHub Token (PAT or App installation token)
+    patAuth:
+      type: apiKey
+      in: header
+      name: Authorization
+      description: 'Use "token YOUR_PAT" for classic personal access tokens.'
+  parameters:
+    Owner:
+      in: path
+      name: owner
+      required: true
+      schema: { type: string }
+    Repo:
+      in: path
+      name: repo
+      required: true
+      schema: { type: string }
+    Org:
+      in: path
+      name: org
+      required: true
+      schema: { type: string }
+    Username:
+      in: path
+      name: username
+      required: true
+      schema: { type: string }
+    PerPage:
+      in: query
+      name: per_page
+      schema: { type: integer, minimum: 1, maximum: 100, default: 30 }
+    Page:
+      in: query
+      name: page
+      schema: { type: integer, minimum: 1, default: 1 }
+  schemas:
+    User:
+      type: object
+      properties:
+        id: { type: integer }
+        login: { type: string }
+        name: { type: string }
+        email: { type: string, format: email }
+        avatar_url: { type: string, format: uri }
+        html_url: { type: string, format: uri }
+        type: { type: string }
+    Organization:
+      type: object
+      properties:
+        id: { type: integer }
+        login: { type: string }
+        description: { type: string }
+        company: { type: string }
+        public_repos: { type: integer }
+        plan:
+          type: object
+          properties:
+            name: { type: string }
+            seats: { type: integer }
+            filled_seats: { type: integer }
+    Repository:
+      type: object
+      properties:
+        id: { type: integer }
+        node_id: { type: string }
+        name: { type: string }
+        full_name: { type: string }
+        private: { type: boolean }
+        owner: { $ref: "#/components/schemas/User" }
+        html_url: { type: string, format: uri }
+        default_branch: { type: string }
+        created_at: { type: string, format: date-time }
+    Issue:
+      type: object
+      properties:
+        id: { type: integer }
+        number: { type: integer }
+        title: { type: string }
+        state: { type: string, enum: [open, closed] }
+        user: { $ref: "#/components/schemas/User" }
+        labels:
+          type: array
+          items:
+            type: object
+            properties:
+              name: { type: string }
+              color: { type: string }
+        body: { type: string }
+        created_at: { type: string, format: date-time }
+    PullRequest:
+      type: object
+      properties:
+        id: { type: integer }
+        number: { type: integer }
+        title: { type: string }
+        state: { type: string, enum: [open, closed] }
+        draft: { type: boolean }
+        head:
+          type: object
+          properties:
+            ref: { type: string }
+            sha: { type: string }
+        base:
+          type: object
+          properties:
+            ref: { type: string }
+            sha: { type: string }
+        merged: { type: boolean }
+    Workflow:
+      type: object
+      properties:
+        id: { type: integer }
+        name: { type: string }
+        path: { type: string }
+        state: { type: string }
+    WorkflowRun:
+      type: object
+      properties:
+        id: { type: integer }
+        name: { type: string }
+        head_branch: { type: string }
+        head_sha: { type: string }
+        status: { type: string }
+        conclusion: { type: string }
+        workflow_id: { type: integer }
+        created_at: { type: string, format: date-time }
+    CodeScanningAlert:
+      type: object
+      properties:
+        number: { type: integer }
+        state: { type: string, enum: [open, closed, dismissed, fixed] }
+        rule:
+          type: object
+          properties:
+            id: { type: string }
+            severity: { type: string }
+            description: { type: string }
+        most_recent_instance:
+          type: object
+          properties:
+            ref: { type: string }
+            commit_sha: { type: string }

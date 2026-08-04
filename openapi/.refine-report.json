@@ -1,0 +1,30 @@
+{
+  "provider": "github-enterprise",
+  "sources": [
+    "github-enterprise-actions-api-openapi.yml",
+    "github-enterprise-code-scanning-api-openapi.yml",
+    "github-enterprise-enterprise-admin-api-openapi.yml",
+    "github-enterprise-issues-api-openapi.yml",
+    "github-enterprise-organizations-api-openapi.yml",
+    "github-enterprise-pull-requests-api-openapi.yml",
+    "github-enterprise-repositories-api-openapi.yml",
+    "github-enterprise-scim-api-openapi.yml",
+    "github-enterprise-users-api-openapi.yml"
+  ],
+  "outputs": [
+    "github-enterprise-actions-api-openapi.yml",
+    "github-enterprise-code-scanning-api-openapi.yml",
+    "github-enterprise-enterprise-admin-api-openapi.yml",
+    "github-enterprise-issues-api-openapi.yml",
+    "github-enterprise-organizations-api-openapi.yml",
+    "github-enterprise-pull-requests-api-openapi.yml",
+    "github-enterprise-repositories-api-openapi.yml",
+    "github-enterprise-scim-api-openapi.yml",
+    "github-enterprise-users-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
