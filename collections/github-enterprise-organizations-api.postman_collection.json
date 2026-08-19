@@ -1,0 +1,134 @@
+{
+  "item": [
+    {
+      "id": "a614d142-36d8-4025-b017-b5c4033f17d7",
+      "name": "Organizations",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "0f6a98c0-2a69-440d-9668-d25f5b526a0f",
+          "name": "Get an organization",
+          "request": {
+            "name": "Get an organization",
+            "description": {},
+            "url": {
+              "path": [
+                "orgs",
+                ":org"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "org",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "9e0d5340-1106-41bc-b94d-db33a03a3211",
+              "name": "Organization",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "orgs",
+                    ":org"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "org",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 6330,\n  \"login\": \"string\",\n  \"description\": \"string\",\n  \"company\": \"string\",\n  \"public_repos\": 6786,\n  \"plan\": {\n    \"name\": \"string\",\n    \"seats\": 4077,\n    \"filled_seats\": 2858\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.github.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "ed829e9d-bab0-4248-9552-7a98140dbbfe",
+    "name": "GitHub Enterprise Cloud REST Actions Organizations API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Best-effort OpenAPI 3.1 description of representative GitHub Enterprise\nCloud REST API endpoints across repositories, issues, pull requests,\nactions, organizations, enterprises (admin / audit log), code scanning,\nSCIM, and users. The full surface is documented at\nhttps://docs.github.com/en/enterprise-cloud@latest/rest. For GitHub\nEnterprise Server, the same paths are served under /api/v3 on the\ncustomer's domain.\n\n\nContact Support:\n Name: GitHub Enterprise REST API",
+      "type": "text/plain"
+    }
+  }
+}

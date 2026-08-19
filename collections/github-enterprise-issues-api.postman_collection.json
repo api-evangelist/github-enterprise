@@ -1,0 +1,313 @@
+{
+  "item": [
+    {
+      "id": "c60a6570-a0cc-4461-8e3d-82f7ac306c52",
+      "name": "Issues",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "8109e47a-6fa6-46a1-a23c-ff26dd983bb0",
+          "name": "List repository issues",
+          "request": {
+            "name": "List repository issues",
+            "description": {},
+            "url": {
+              "path": [
+                "repos",
+                ":owner",
+                ":repo",
+                "issues"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "state",
+                  "value": "open"
+                },
+                {
+                  "disabled": false,
+                  "key": "per_page",
+                  "value": "30"
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "1"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "owner",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "repo",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "9d21031b-8bb9-42d5-9075-d3d2c71a71b9",
+              "name": "Issues",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "repos",
+                    ":owner",
+                    ":repo",
+                    "issues"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "state",
+                      "value": "open"
+                    },
+                    {
+                      "key": "per_page",
+                      "value": "30"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "owner",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "repo",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": 6926,\n    \"number\": 9643,\n    \"title\": \"string\",\n    \"state\": \"open\",\n    \"user\": {\n      \"id\": 7806,\n      \"login\": \"string\",\n      \"name\": \"string\",\n      \"email\": \"o-NAeY@RKbITFfnpZMLmJHcWJDKufWPYTgh.cla\",\n      \"avatar_url\": \"http://Gi.zgg3XC1RbbNN\",\n      \"html_url\": \"http://eVCAWar.xjryk9+bIfgl3cg03U8nsMsR02PMzgwDfaS-lV9lm\",\n      \"type\": \"string\"\n    },\n    \"labels\": [\n      {\n        \"name\": \"string\",\n        \"color\": \"string\"\n      },\n      {\n        \"name\": \"string\",\n        \"color\": \"string\"\n      }\n    ],\n    \"body\": \"string\",\n    \"created_at\": \"2019-01-26T13:21:30.161Z\"\n  },\n  {\n    \"id\": 5726,\n    \"number\": 3109,\n    \"title\": \"string\",\n    \"state\": \"closed\",\n    \"user\": {\n      \"id\": 5200,\n      \"login\": \"string\",\n      \"name\": \"string\",\n      \"email\": \"uUYbWKTuH@bvseYizfegXMLuALERZHZKAjwJzLhNuh.raw\",\n      \"avatar_url\": \"http://gXFwkXcqsP.scNCcUCR9,u1I,J5oBFFJga1NfD0x9TLbSU,rmy2vr7xbkXzocfe8dXOwZZPSlxTu+2TU1\",\n      \"html_url\": \"https://cqPApsQryVcR.bqgzyX32OZqYDzPnr5yRvAmohR,wy-FMT5.z-MTXbysJyMPgtobk\",\n      \"type\": \"string\"\n    },\n    \"labels\": [\n      {\n        \"name\": \"string\",\n        \"color\": \"string\"\n      },\n      {\n        \"name\": \"string\",\n        \"color\": \"string\"\n      }\n    ],\n    \"body\": \"string\",\n    \"created_at\": \"1964-05-02T19:03:48.169Z\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f4627f91-cc3e-4872-9fec-4bbbc0830e61",
+          "name": "Create an issue",
+          "request": {
+            "name": "Create an issue",
+            "description": {},
+            "url": {
+              "path": [
+                "repos",
+                ":owner",
+                ":repo",
+                "issues"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "owner",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "repo",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"title\": \"<string>\",\n  \"body\": \"<string>\",\n  \"labels\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"assignees\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "b698d403-eeb2-47df-bbdd-45aae19f8571",
+              "name": "Created",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "repos",
+                    ":owner",
+                    ":repo",
+                    "issues"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "owner",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "repo",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"title\": \"<string>\",\n  \"body\": \"<string>\",\n  \"labels\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"assignees\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 4042,\n  \"number\": 6849,\n  \"title\": \"string\",\n  \"state\": \"open\",\n  \"user\": {\n    \"id\": 1056,\n    \"login\": \"string\",\n    \"name\": \"string\",\n    \"email\": \"Ckz3cKawi0pU@ilhfjulrPtdeF.ra\",\n    \"avatar_url\": \"https://pFNNECkFOpBSHvJQrNXjpIRUFrJRcXd.twtmue6CryTj3-c\",\n    \"html_url\": \"http://PS.irpbu.OUGa70D02a9w9MVmM+dZ.C2Gk3eMVdJHRLrO80CmmCVzru\",\n    \"type\": \"string\"\n  },\n  \"labels\": [\n    {\n      \"name\": \"string\",\n      \"color\": \"string\"\n    },\n    {\n      \"name\": \"string\",\n      \"color\": \"string\"\n    }\n  ],\n  \"body\": \"string\",\n  \"created_at\": \"2010-02-04T15:31:16.270Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.github.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "5cba2b39-af2c-4725-adf9-e7e2a42497b2",
+    "name": "GitHub Enterprise Cloud REST Actions Issues API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Best-effort OpenAPI 3.1 description of representative GitHub Enterprise\nCloud REST API endpoints across repositories, issues, pull requests,\nactions, organizations, enterprises (admin / audit log), code scanning,\nSCIM, and users. The full surface is documented at\nhttps://docs.github.com/en/enterprise-cloud@latest/rest. For GitHub\nEnterprise Server, the same paths are served under /api/v3 on the\ncustomer's domain.\n\n\nContact Support:\n Name: GitHub Enterprise REST API",
+      "type": "text/plain"
+    }
+  }
+}

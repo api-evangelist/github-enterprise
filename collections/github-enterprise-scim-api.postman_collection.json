@@ -1,0 +1,252 @@
+{
+  "item": [
+    {
+      "id": "00cd0ac3-9a44-4c92-ac36-51f2458f10c2",
+      "name": "SCIM",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "4277f194-d65e-43ec-963a-a38e8d3dbaa5",
+          "name": "List SCIM users for an enterprise",
+          "request": {
+            "name": "List SCIM users for an enterprise",
+            "description": {},
+            "url": {
+              "path": [
+                "scim",
+                "v2",
+                "enterprises",
+                ":enterprise",
+                "Users"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "enterprise",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/scim+json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "75bd7610-8f70-4335-8814-289b43a7c2fa",
+              "name": "SCIM users",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "scim",
+                    "v2",
+                    "enterprises",
+                    ":enterprise",
+                    "Users"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "enterprise",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/scim+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/scim+json"
+                }
+              ],
+              "body": "{\n  \"totalResults\": 7944,\n  \"Resources\": [\n    {\n      \"key_0\": 3043.0701028318294\n    },\n    {\n      \"key_0\": false,\n      \"key_1\": false,\n      \"key_2\": 3905.723897717193,\n      \"key_3\": 8980.752064595334\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c0f7d858-6688-479e-929c-677cebaa8267",
+          "name": "Provision a SCIM user",
+          "request": {
+            "name": "Provision a SCIM user",
+            "description": {},
+            "url": {
+              "path": [
+                "scim",
+                "v2",
+                "enterprises",
+                ":enterprise",
+                "Users"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "enterprise",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/scim+json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"key_0\": 425\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "ca67c9ec-ea88-41d4-a3f0-d05558f8e8b8",
+              "name": "Created",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "scim",
+                    "v2",
+                    "enterprises",
+                    ":enterprise",
+                    "Users"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "enterprise",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"key_0\": 4534.108500006617,\n  \"key_1\": 8498,\n  \"key_2\": 3562.640299416394\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.github.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "e885d45a-9c94-4edb-a069-28c0cc07c5d7",
+    "name": "GitHub Enterprise Cloud REST Actions SCIM API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Best-effort OpenAPI 3.1 description of representative GitHub Enterprise\nCloud REST API endpoints across repositories, issues, pull requests,\nactions, organizations, enterprises (admin / audit log), code scanning,\nSCIM, and users. The full surface is documented at\nhttps://docs.github.com/en/enterprise-cloud@latest/rest. For GitHub\nEnterprise Server, the same paths are served under /api/v3 on the\ncustomer's domain.\n\n\nContact Support:\n Name: GitHub Enterprise REST API",
+      "type": "text/plain"
+    }
+  }
+}

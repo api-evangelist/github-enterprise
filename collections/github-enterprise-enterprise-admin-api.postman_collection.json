@@ -1,0 +1,165 @@
+{
+  "item": [
+    {
+      "id": "97249bf5-f254-4cb2-aae5-1329dc098199",
+      "name": "Enterprise Admin",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "95151715-c59e-4661-b201-58b841bc6fdd",
+          "name": "Get the audit log for an enterprise",
+          "request": {
+            "name": "Get the audit log for an enterprise",
+            "description": {},
+            "url": {
+              "path": [
+                "enterprises",
+                ":enterprise",
+                "audit-log"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "phrase",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "include",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "per_page",
+                  "value": "30"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "enterprise",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "be25b473-bbb6-4b0c-81dc-bd1b1b06fdf3",
+              "name": "Audit log events",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "enterprises",
+                    ":enterprise",
+                    "audit-log"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "phrase",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "include",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "per_page",
+                      "value": "30"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "enterprise",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"key_0\": false,\n    \"key_1\": 7781\n  },\n  {\n    \"key_0\": \"string\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.github.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "654f45ff-1d4f-41c1-a8b9-616a22ef1f2f",
+    "name": "GitHub Enterprise Cloud REST Actions Enterprise Admin API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Best-effort OpenAPI 3.1 description of representative GitHub Enterprise\nCloud REST API endpoints across repositories, issues, pull requests,\nactions, organizations, enterprises (admin / audit log), code scanning,\nSCIM, and users. The full surface is documented at\nhttps://docs.github.com/en/enterprise-cloud@latest/rest. For GitHub\nEnterprise Server, the same paths are served under /api/v3 on the\ncustomer's domain.\n\n\nContact Support:\n Name: GitHub Enterprise REST API",
+      "type": "text/plain"
+    }
+  }
+}

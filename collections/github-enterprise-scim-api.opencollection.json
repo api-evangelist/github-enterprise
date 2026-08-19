@@ -1,0 +1,64 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "GitHub Enterprise Cloud REST Actions SCIM API",
+    "version": "2026-05-23"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "SCIM",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List SCIM users for an enterprise",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.github.com/scim/v2/enterprises/:enterprise/Users",
+            "params": [
+              {
+                "name": "enterprise",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "List SCIM users for an enterprise"
+        },
+        {
+          "info": {
+            "name": "Provision a SCIM user",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.github.com/scim/v2/enterprises/:enterprise/Users",
+            "params": [
+              {
+                "name": "enterprise",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Provision a SCIM user"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

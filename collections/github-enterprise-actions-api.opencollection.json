@@ -1,0 +1,75 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "GitHub Enterprise Cloud REST Actions API",
+    "version": "2026-05-23"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Actions",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List repository workflows",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.github.com/repos/:owner/:repo/actions/workflows",
+            "params": [
+              {
+                "name": "owner",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "repo",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "List repository workflows"
+        },
+        {
+          "info": {
+            "name": "List workflow runs for a repository",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.github.com/repos/:owner/:repo/actions/runs",
+            "params": [
+              {
+                "name": "owner",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "repo",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "status",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "List workflow runs for a repository"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

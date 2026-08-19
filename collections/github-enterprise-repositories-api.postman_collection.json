@@ -1,0 +1,480 @@
+{
+  "item": [
+    {
+      "id": "159de6c0-48a7-4b02-b4c3-b1b205d503d3",
+      "name": "Repositories",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "afa29c3b-6be7-443c-af97-d1afa657d1ad",
+          "name": "List organization repositories",
+          "request": {
+            "name": "List organization repositories",
+            "description": {},
+            "url": {
+              "path": [
+                "orgs",
+                ":org",
+                "repos"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "per_page",
+                  "value": "30"
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "1"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "org",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "cf290e17-03da-4eef-b433-4d0284ad33ca",
+              "name": "Repositories",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "orgs",
+                    ":org",
+                    "repos"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "per_page",
+                      "value": "30"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "org",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": 2093,\n    \"node_id\": \"string\",\n    \"name\": \"string\",\n    \"full_name\": \"string\",\n    \"private\": true,\n    \"owner\": {\n      \"id\": 57,\n      \"login\": \"string\",\n      \"name\": \"string\",\n      \"email\": \"jLhu@kCMnGsGSobyqm.yaqd\",\n      \"avatar_url\": \"https://VfEtf.dcwm6qHAkdMMAqbSH\",\n      \"html_url\": \"http://PyPmVyLzuTdIpjIRoZgA.gvjazhoJROSaQf\",\n      \"type\": \"string\"\n    },\n    \"html_url\": \"https://fzXgeeJHSYIsJaOncuHyNahOns.clfq6GS6HhApG0paZn1ZPbDf2-n3n-yMNOmj,jMvcXL94CZFbpFyDj\",\n    \"default_branch\": \"string\",\n    \"created_at\": \"2009-12-28T19:47:25.566Z\"\n  },\n  {\n    \"id\": 2254,\n    \"node_id\": \"string\",\n    \"name\": \"string\",\n    \"full_name\": \"string\",\n    \"private\": false,\n    \"owner\": {\n      \"id\": 8239,\n      \"login\": \"string\",\n      \"name\": \"string\",\n      \"email\": \"ECxBTM-5@wRFEFNtOKPJGgKZHaCoSArtciMKx.kroq\",\n      \"avatar_url\": \"https://KQgFqfXPUrsGCPFRmenUBGDUOuLdNRl.sgsW6IDyzZOQDvPQdMBMxEJy31NWx\",\n      \"html_url\": \"https://hXZYQYSJUWQLggszEFHArMN.xlhjUtHtAqeyBtsx,+A73CrdTAFQQsO0cOod+-EwNYChS9SpSet4lgw4\",\n      \"type\": \"string\"\n    },\n    \"html_url\": \"http://cQZxh.gjef.-cSp+Gc\",\n    \"default_branch\": \"string\",\n    \"created_at\": \"1963-05-20T22:20:20.629Z\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e790900a-6c21-4329-ac25-46d4894b7a43",
+          "name": "Create an organization repository",
+          "request": {
+            "name": "Create an organization repository",
+            "description": {},
+            "url": {
+              "path": [
+                "orgs",
+                ":org",
+                "repos"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "org",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"private\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"auto_init\": \"<boolean>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "0d249f0c-9705-4443-bea5-4476f1aa25ed",
+              "name": "Created",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "orgs",
+                    ":org",
+                    "repos"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "org",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"private\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"auto_init\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 7776,\n  \"node_id\": \"string\",\n  \"name\": \"string\",\n  \"full_name\": \"string\",\n  \"private\": true,\n  \"owner\": {\n    \"id\": 9448,\n    \"login\": \"string\",\n    \"name\": \"string\",\n    \"email\": \"yldMjoDyxWANd@HEtHaWBYykCPwZp.dyl\",\n    \"avatar_url\": \"https://aXouRjyOJMVJbeTGycarfr.mqirwMOD5L+g3c9eO8ctYn\",\n    \"html_url\": \"https://XMxdmNqWufOkOVgkzJxTcbcluQKBlhHF.pmbqhx9nTIsyx2tMeGTATn3NFXALXSZ.DZGjMvyUmnYXbFPFl8tPBiGMw0M\",\n    \"type\": \"string\"\n  },\n  \"html_url\": \"https://iyNyFNnavaZXQNWjVXogwYzGZGvqdXk.ccrugYJvi-r\",\n  \"default_branch\": \"string\",\n  \"created_at\": \"1996-04-23T20:24:25.771Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "4eea5cee-284e-4e01-bc88-24a2fcdc2292",
+          "name": "Get a repository",
+          "request": {
+            "name": "Get a repository",
+            "description": {},
+            "url": {
+              "path": [
+                "repos",
+                ":owner",
+                ":repo"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "owner",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "repo",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "c42114cd-7664-43fa-bdb4-d999706fbdb8",
+              "name": "Repository",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "repos",
+                    ":owner",
+                    ":repo"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "owner",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "repo",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 7776,\n  \"node_id\": \"string\",\n  \"name\": \"string\",\n  \"full_name\": \"string\",\n  \"private\": true,\n  \"owner\": {\n    \"id\": 9448,\n    \"login\": \"string\",\n    \"name\": \"string\",\n    \"email\": \"yldMjoDyxWANd@HEtHaWBYykCPwZp.dyl\",\n    \"avatar_url\": \"https://aXouRjyOJMVJbeTGycarfr.mqirwMOD5L+g3c9eO8ctYn\",\n    \"html_url\": \"https://XMxdmNqWufOkOVgkzJxTcbcluQKBlhHF.pmbqhx9nTIsyx2tMeGTATn3NFXALXSZ.DZGjMvyUmnYXbFPFl8tPBiGMw0M\",\n    \"type\": \"string\"\n  },\n  \"html_url\": \"https://iyNyFNnavaZXQNWjVXogwYzGZGvqdXk.ccrugYJvi-r\",\n  \"default_branch\": \"string\",\n  \"created_at\": \"1996-04-23T20:24:25.771Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "2e5206cc-c80c-4842-8307-ef79f99d5b7c",
+          "name": "Delete a repository",
+          "request": {
+            "name": "Delete a repository",
+            "description": {},
+            "url": {
+              "path": [
+                "repos",
+                ":owner",
+                ":repo"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "owner",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "repo",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "d1e4e1b9-c7ac-4eee-a802-c61d8e2155da",
+              "name": "Deleted",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "repos",
+                    ":owner",
+                    ":repo"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "owner",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "repo",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.github.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "98e6b9ef-026a-431c-aaa1-8a15b5ff4534",
+    "name": "GitHub Enterprise Cloud REST Actions Repositories API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Best-effort OpenAPI 3.1 description of representative GitHub Enterprise\nCloud REST API endpoints across repositories, issues, pull requests,\nactions, organizations, enterprises (admin / audit log), code scanning,\nSCIM, and users. The full surface is documented at\nhttps://docs.github.com/en/enterprise-cloud@latest/rest. For GitHub\nEnterprise Server, the same paths are served under /api/v3 on the\ncustomer's domain.\n\n\nContact Support:\n Name: GitHub Enterprise REST API",
+      "type": "text/plain"
+    }
+  }
+}

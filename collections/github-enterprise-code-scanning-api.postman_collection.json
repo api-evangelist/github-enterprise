@@ -1,0 +1,154 @@
+{
+  "item": [
+    {
+      "id": "96d653cd-f103-460a-b2f4-ce0c22c0458f",
+      "name": "Code Scanning",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "e4a246d1-1eb0-479d-9b81-cdabac426269",
+          "name": "List code-scanning alerts for a repository",
+          "request": {
+            "name": "List code-scanning alerts for a repository",
+            "description": {},
+            "url": {
+              "path": [
+                "repos",
+                ":owner",
+                ":repo",
+                "code-scanning",
+                "alerts"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "owner",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "repo",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "b24e961e-e489-48d0-a488-eaed12c3f5dd",
+              "name": "Alerts",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "repos",
+                    ":owner",
+                    ":repo",
+                    "code-scanning",
+                    "alerts"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "owner",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "repo",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"number\": 1561,\n    \"state\": \"open\",\n    \"rule\": {\n      \"id\": \"string\",\n      \"severity\": \"string\",\n      \"description\": \"string\"\n    },\n    \"most_recent_instance\": {\n      \"ref\": \"string\",\n      \"commit_sha\": \"string\"\n    }\n  },\n  {\n    \"number\": 7177,\n    \"state\": \"fixed\",\n    \"rule\": {\n      \"id\": \"string\",\n      \"severity\": \"string\",\n      \"description\": \"string\"\n    },\n    \"most_recent_instance\": {\n      \"ref\": \"string\",\n      \"commit_sha\": \"string\"\n    }\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.github.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "88443b82-52ee-4ec9-879d-4aac9be8b294",
+    "name": "GitHub Enterprise Cloud REST Actions Code Scanning API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Best-effort OpenAPI 3.1 description of representative GitHub Enterprise\nCloud REST API endpoints across repositories, issues, pull requests,\nactions, organizations, enterprises (admin / audit log), code scanning,\nSCIM, and users. The full surface is documented at\nhttps://docs.github.com/en/enterprise-cloud@latest/rest. For GitHub\nEnterprise Server, the same paths are served under /api/v3 on the\ncustomer's domain.\n\n\nContact Support:\n Name: GitHub Enterprise REST API",
+      "type": "text/plain"
+    }
+  }
+}
