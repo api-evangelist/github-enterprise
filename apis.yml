@@ -93,6 +93,8 @@ apis:
   humanURL: https://docs.github.com/en/enterprise-cloud@latest/rest
   baseURL: https://api.github.com
   tags:
+  - Enterprise-Admin
+  tags_raw:
   - Enterprise Admin
   properties:
   - type: OpenAPI
@@ -139,6 +141,8 @@ apis:
   humanURL: https://docs.github.com/en/enterprise-cloud@latest/rest
   baseURL: https://api.github.com
   tags:
+  - Organization
+  tags_raw:
   - Organizations
   properties:
   - type: OpenAPI
@@ -231,6 +235,8 @@ apis:
   humanURL: https://docs.github.com/en/enterprise-cloud@latest/rest
   baseURL: https://api.github.com
   tags:
+  - User
+  tags_raw:
   - Users
   properties:
   - type: OpenAPI
