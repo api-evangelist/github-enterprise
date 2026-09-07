@@ -1,4 +1,4 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
   title: GitHub Enterprise Cloud REST Actions Organizations API
   version: '2026-05-23'
@@ -50,6 +50,13 @@ paths:
               schema:
                 $ref: '#/components/schemas/Organization'
 components:
+  parameters:
+    Org:
+      in: path
+      name: org
+      required: true
+      schema:
+        type: string
   schemas:
     Organization:
       type: object
@@ -73,13 +80,6 @@ components:
               type: integer
             filled_seats:
               type: integer
-  parameters:
-    Org:
-      in: path
-      name: org
-      required: true
-      schema:
-        type: string
   securitySchemes:
     bearerAuth:
       type: http

@@ -25,6 +25,17 @@
   "archived": [],
   "errors": [],
   "warnings": [],
-  "notes": [],
+  "notes": [
+    "github-enterprise-actions-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "github-enterprise-code-scanning-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "github-enterprise-enterprise-admin-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "github-enterprise-issues-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "github-enterprise-organizations-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "github-enterprise-pull-requests-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "github-enterprise-repositories-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "github-enterprise-scim-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "github-enterprise-users-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "apis.yml register: already-registered"
+  ],
   "skipped": []
 }
