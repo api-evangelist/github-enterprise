@@ -47,8 +47,7 @@ tags:
 - SAML SSO
 - SCIM
 - Advanced Security
-url: >-
-  https://raw.githubusercontent.com/api-evangelist/github-enterprise/refs/heads/main/apis.yml
+url: https://github.com/enterprise
 created: '2026-05-11'
 modified: '2026-05-11'
 specificationVersion: '0.23'
