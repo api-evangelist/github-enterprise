@@ -1,16 +1,12 @@
 aid: github-enterprise
 name: GitHub Enterprise
-description: >-
-  GitHub Enterprise is GitHub's offering for organizations that need advanced
-  security, compliance, identity, and scale on top of the GitHub platform.
-  It ships in two flavors: GitHub Enterprise Cloud, a hosted multi-tenant
-  service on api.github.com with enterprise-managed users and SAML SSO; and
-  GitHub Enterprise Server (GHES), a self-hosted appliance with the same
-  REST and GraphQL APIs served from a customer's domain at /api/v3 and
-  /api/graphql. Both expose the full GitHub REST API for repositories,
-  issues, pull requests, actions, packages, advanced security, audit log,
-  SCIM, and admin operations, authenticated with personal access tokens or
-  GitHub App tokens.
+description: 'GitHub Enterprise is GitHub''s offering for organizations that need advanced security, compliance,
+  identity, and scale on top of the GitHub platform. It ships in two flavors: GitHub Enterprise Cloud,
+  a hosted multi-tenant service on api.github.com with enterprise-managed users and SAML SSO; and GitHub
+  Enterprise Server (GHES), a self-hosted appliance with the same REST and GraphQL APIs served from a
+  customer''s domain at /api/v3 and /api/graphql. Both expose the full GitHub REST API for repositories,
+  issues, pull requests, actions, packages, advanced security, audit log, SCIM, and admin operations,
+  authenticated with personal access tokens or GitHub App tokens.'
 type: Index
 deliveryModel:
   model: saas
@@ -50,7 +46,7 @@ tags:
 - Developer Tools
 url: https://github.com/enterprise
 created: '2026-05-11'
-modified: '2026-05-11'
+modified: '2026-09-16'
 specificationVersion: '0.23'
 apis:
 - aid: github-enterprise:github-enterprise-actions-api
@@ -66,8 +62,7 @@ apis:
   - type: Documentation
     url: https://docs.github.com/en/enterprise-cloud@latest/rest
   - type: Authentication
-    url: >-
-      https://docs.github.com/en/enterprise-cloud@latest/rest/overview/authenticating-to-the-rest-api
+    url: https://docs.github.com/en/enterprise-cloud@latest/rest/overview/authenticating-to-the-rest-api
   - type: GraphQL API
     url: https://docs.github.com/en/enterprise-cloud@latest/graphql
   - type: GraphQL
@@ -89,8 +84,7 @@ apis:
   - type: Documentation
     url: https://docs.github.com/en/enterprise-cloud@latest/rest
   - type: Authentication
-    url: >-
-      https://docs.github.com/en/enterprise-cloud@latest/rest/overview/authenticating-to-the-rest-api
+    url: https://docs.github.com/en/enterprise-cloud@latest/rest/overview/authenticating-to-the-rest-api
   - type: GraphQL API
     url: https://docs.github.com/en/enterprise-cloud@latest/graphql
   - type: GraphQL
@@ -100,7 +94,7 @@ apis:
   - type: GraphQL API
     url: https://docs.github.com/en/enterprise-server@latest/graphql
 - aid: github-enterprise:github-enterprise-enterprise-admin-api
-  name: GitHub Enterprise Enterprise Admin API
+  name: GitHub Enterprise Admin API
   description: The Enterprise Admin API from GitHub Enterprise — 1 operation(s) for enterprise admin.
   humanURL: https://docs.github.com/en/enterprise-cloud@latest/rest
   baseURL: https://api.github.com
@@ -114,8 +108,7 @@ apis:
   - type: Documentation
     url: https://docs.github.com/en/enterprise-cloud@latest/rest
   - type: Authentication
-    url: >-
-      https://docs.github.com/en/enterprise-cloud@latest/rest/overview/authenticating-to-the-rest-api
+    url: https://docs.github.com/en/enterprise-cloud@latest/rest/overview/authenticating-to-the-rest-api
   - type: GraphQL API
     url: https://docs.github.com/en/enterprise-cloud@latest/graphql
   - type: GraphQL
@@ -137,8 +130,7 @@ apis:
   - type: Documentation
     url: https://docs.github.com/en/enterprise-cloud@latest/rest
   - type: Authentication
-    url: >-
-      https://docs.github.com/en/enterprise-cloud@latest/rest/overview/authenticating-to-the-rest-api
+    url: https://docs.github.com/en/enterprise-cloud@latest/rest/overview/authenticating-to-the-rest-api
   - type: GraphQL API
     url: https://docs.github.com/en/enterprise-cloud@latest/graphql
   - type: GraphQL
@@ -162,8 +154,7 @@ apis:
   - type: Documentation
     url: https://docs.github.com/en/enterprise-cloud@latest/rest
   - type: Authentication
-    url: >-
-      https://docs.github.com/en/enterprise-cloud@latest/rest/overview/authenticating-to-the-rest-api
+    url: https://docs.github.com/en/enterprise-cloud@latest/rest/overview/authenticating-to-the-rest-api
   - type: GraphQL API
     url: https://docs.github.com/en/enterprise-cloud@latest/graphql
   - type: GraphQL
@@ -185,8 +176,7 @@ apis:
   - type: Documentation
     url: https://docs.github.com/en/enterprise-cloud@latest/rest
   - type: Authentication
-    url: >-
-      https://docs.github.com/en/enterprise-cloud@latest/rest/overview/authenticating-to-the-rest-api
+    url: https://docs.github.com/en/enterprise-cloud@latest/rest/overview/authenticating-to-the-rest-api
   - type: GraphQL API
     url: https://docs.github.com/en/enterprise-cloud@latest/graphql
   - type: GraphQL
@@ -208,8 +198,7 @@ apis:
   - type: Documentation
     url: https://docs.github.com/en/enterprise-cloud@latest/rest
   - type: Authentication
-    url: >-
-      https://docs.github.com/en/enterprise-cloud@latest/rest/overview/authenticating-to-the-rest-api
+    url: https://docs.github.com/en/enterprise-cloud@latest/rest/overview/authenticating-to-the-rest-api
   - type: GraphQL API
     url: https://docs.github.com/en/enterprise-cloud@latest/graphql
   - type: GraphQL
@@ -231,8 +220,7 @@ apis:
   - type: Documentation
     url: https://docs.github.com/en/enterprise-cloud@latest/rest
   - type: Authentication
-    url: >-
-      https://docs.github.com/en/enterprise-cloud@latest/rest/overview/authenticating-to-the-rest-api
+    url: https://docs.github.com/en/enterprise-cloud@latest/rest/overview/authenticating-to-the-rest-api
   - type: GraphQL API
     url: https://docs.github.com/en/enterprise-cloud@latest/graphql
   - type: GraphQL
@@ -256,8 +244,7 @@ apis:
   - type: Documentation
     url: https://docs.github.com/en/enterprise-cloud@latest/rest
   - type: Authentication
-    url: >-
-      https://docs.github.com/en/enterprise-cloud@latest/rest/overview/authenticating-to-the-rest-api
+    url: https://docs.github.com/en/enterprise-cloud@latest/rest/overview/authenticating-to-the-rest-api
   - type: GraphQL API
     url: https://docs.github.com/en/enterprise-cloud@latest/graphql
   - type: GraphQL
