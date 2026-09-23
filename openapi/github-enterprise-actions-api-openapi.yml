@@ -14,9 +14,7 @@ info:
 
     Enterprise Server, the same paths are served under /api/v3 on the
 
-    customer''s domain.
-
-    '
+    customer''s domain.'
   contact:
     name: GitHub Enterprise REST API
     url: https://docs.github.com/en/enterprise-cloud@latest/rest
@@ -86,19 +84,6 @@ paths:
                     items:
                       $ref: '#/components/schemas/WorkflowRun'
 components:
-  parameters:
-    Repo:
-      in: path
-      name: repo
-      required: true
-      schema:
-        type: string
-    Owner:
-      in: path
-      name: owner
-      required: true
-      schema:
-        type: string
   schemas:
     WorkflowRun:
       type: object
@@ -131,6 +116,19 @@ components:
           type: string
         state:
           type: string
+  parameters:
+    Repo:
+      in: path
+      name: repo
+      required: true
+      schema:
+        type: string
+    Owner:
+      in: path
+      name: owner
+      required: true
+      schema:
+        type: string
   securitySchemes:
     bearerAuth:
       type: http

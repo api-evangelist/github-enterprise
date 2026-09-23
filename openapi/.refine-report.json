@@ -1,15 +1,7 @@
 {
   "provider": "github-enterprise",
   "sources": [
-    "github-enterprise-actions-api-openapi.yml",
-    "github-enterprise-code-scanning-api-openapi.yml",
-    "github-enterprise-enterprise-admin-api-openapi.yml",
-    "github-enterprise-issues-api-openapi.yml",
-    "github-enterprise-organizations-api-openapi.yml",
-    "github-enterprise-pull-requests-api-openapi.yml",
-    "github-enterprise-repositories-api-openapi.yml",
-    "github-enterprise-scim-api-openapi.yml",
-    "github-enterprise-users-api-openapi.yml"
+    "_original/github-enterprise-openapi.yml"
   ],
   "outputs": [
     "github-enterprise-actions-api-openapi.yml",
@@ -26,16 +18,28 @@
   "errors": [],
   "warnings": [],
   "notes": [
-    "github-enterprise-actions-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
-    "github-enterprise-code-scanning-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
-    "github-enterprise-enterprise-admin-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
-    "github-enterprise-issues-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
-    "github-enterprise-organizations-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
-    "github-enterprise-pull-requests-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
-    "github-enterprise-repositories-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
-    "github-enterprise-scim-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
-    "github-enterprise-users-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "github-enterprise-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "github-enterprise-openapi.yml: declared missing tag: Actions",
+    "github-enterprise-openapi.yml: declared missing tag: Code Scanning",
+    "github-enterprise-openapi.yml: declared missing tag: Enterprise Admin",
+    "github-enterprise-openapi.yml: declared missing tag: Issues",
+    "github-enterprise-openapi.yml: declared missing tag: Organizations",
+    "github-enterprise-openapi.yml: declared missing tag: Pull Requests",
+    "github-enterprise-openapi.yml: declared missing tag: Repositories",
+    "github-enterprise-openapi.yml: declared missing tag: SCIM",
+    "github-enterprise-openapi.yml: declared missing tag: Users",
     "apis.yml register: already-registered"
   ],
-  "skipped": []
+  "skipped": [
+    "github-enterprise-actions-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "github-enterprise-code-scanning-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "github-enterprise-enterprise-admin-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "github-enterprise-issues-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "github-enterprise-organizations-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "github-enterprise-pull-requests-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "github-enterprise-repositories-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "github-enterprise-scim-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "github-enterprise-users-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }

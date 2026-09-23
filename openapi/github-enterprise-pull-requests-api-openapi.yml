@@ -1,6 +1,6 @@
 openapi: 3.2.0
 info:
-  title: GitHub Enterprise Cloud REST Actions Pull Requests API
+  title: GitHub Enterprise Cloud REST Pull Requests API
   version: '2026-05-23'
   description: 'Best-effort OpenAPI 3.1 description of representative GitHub Enterprise
 
@@ -14,9 +14,7 @@ info:
 
     Enterprise Server, the same paths are served under /api/v3 on the
 
-    customer''s domain.
-
-    '
+    customer''s domain.'
   contact:
     name: GitHub Enterprise REST API
     url: https://docs.github.com/en/enterprise-cloud@latest/rest
@@ -95,23 +93,9 @@ paths:
           description: Created
 components:
   parameters:
-    PerPage:
-      in: query
-      name: per_page
-      schema:
-        type: integer
-        minimum: 1
-        maximum: 100
-        default: 30
     Repo:
       in: path
       name: repo
-      required: true
-      schema:
-        type: string
-    Owner:
-      in: path
-      name: owner
       required: true
       schema:
         type: string
@@ -122,6 +106,20 @@ components:
         type: integer
         minimum: 1
         default: 1
+    PerPage:
+      in: query
+      name: per_page
+      schema:
+        type: integer
+        minimum: 1
+        maximum: 100
+        default: 30
+    Owner:
+      in: path
+      name: owner
+      required: true
+      schema:
+        type: string
   schemas:
     PullRequest:
       type: object

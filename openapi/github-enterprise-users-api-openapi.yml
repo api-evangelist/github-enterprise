@@ -1,6 +1,6 @@
 openapi: 3.2.0
 info:
-  title: GitHub Enterprise Cloud REST Actions Users API
+  title: GitHub Enterprise Cloud REST Users API
   version: '2026-05-23'
   description: 'Best-effort OpenAPI 3.1 description of representative GitHub Enterprise
 
@@ -14,9 +14,7 @@ info:
 
     Enterprise Server, the same paths are served under /api/v3 on the
 
-    customer''s domain.
-
-    '
+    customer''s domain.'
   contact:
     name: GitHub Enterprise REST API
     url: https://docs.github.com/en/enterprise-cloud@latest/rest
@@ -63,13 +61,6 @@ paths:
               schema:
                 $ref: '#/components/schemas/User'
 components:
-  parameters:
-    Username:
-      in: path
-      name: username
-      required: true
-      schema:
-        type: string
   schemas:
     User:
       type: object
@@ -91,6 +82,13 @@ components:
           format: uri
         type:
           type: string
+  parameters:
+    Username:
+      in: path
+      name: username
+      required: true
+      schema:
+        type: string
   securitySchemes:
     bearerAuth:
       type: http
