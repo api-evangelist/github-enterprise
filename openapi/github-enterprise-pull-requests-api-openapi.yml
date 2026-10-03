@@ -93,12 +93,6 @@ paths:
           description: Created
 components:
   parameters:
-    Repo:
-      in: path
-      name: repo
-      required: true
-      schema:
-        type: string
     Page:
       in: query
       name: page
@@ -117,6 +111,12 @@ components:
     Owner:
       in: path
       name: owner
+      required: true
+      schema:
+        type: string
+    Repo:
+      in: path
+      name: repo
       required: true
       schema:
         type: string

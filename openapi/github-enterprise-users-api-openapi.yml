@@ -61,6 +61,13 @@ paths:
               schema:
                 $ref: '#/components/schemas/User'
 components:
+  parameters:
+    Username:
+      in: path
+      name: username
+      required: true
+      schema:
+        type: string
   schemas:
     User:
       type: object
@@ -82,13 +89,6 @@ components:
           format: uri
         type:
           type: string
-  parameters:
-    Username:
-      in: path
-      name: username
-      required: true
-      schema:
-        type: string
   securitySchemes:
     bearerAuth:
       type: http
