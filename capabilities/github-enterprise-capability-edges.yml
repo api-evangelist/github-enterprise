@@ -1,0 +1,73 @@
+slug: github-enterprise
+provider: GitHub Enterprise
+generated_by: planning/capability-mapping/scripts/classify_capabilities.py
+model: claude-opus-5
+frame:
+- Software & Technology
+min_confidence: 0.7
+capability_model:
+  source: https://github.com/vincentmakes/turbo-ea-capabilities
+  license: CC-BY-4.0
+  attribution: Turbo EA Capabilities by Vincent Verdet — Turbo EA, https://github.com/vincentmakes/turbo-ea-capabilities,
+    CC BY 4.0
+  notice: NOTICE
+edge_count: 6
+edges:
+- tag: Pull Requests
+  spec_file: github-enterprise-pull-requests-api-openapi.yml
+  capability_id: BC-4200.40
+  capability_id_l1: BC-4200
+  capability_name: Software Construction Management
+  confidence: 0.9
+  evidence: POST /repos/{owner}/{repo}/pulls  createPullRequest  Create a pull request
+  reason: Pull requests are the canonical source-control code review mechanism, which is exactly Software
+    Construction Management ('source control, code review, and collaborative coding disciplines').
+- tag: Repositories
+  spec_file: github-enterprise-repositories-api-openapi.yml
+  capability_id: BC-4200.40
+  capability_id_l1: BC-4200
+  capability_name: Software Construction Management
+  confidence: 0.85
+  evidence: POST /orgs/{org}/repos  createOrgRepo  Create an organization repository
+  reason: Create/get/delete of git source repositories is source-control management, the core of Software
+    Construction Management.
+- tag: SCIM
+  spec_file: github-enterprise-scim-api-openapi.yml
+  capability_id: BC-620.20
+  capability_id_l1: BC-620
+  capability_name: Identity & Access Management
+  confidence: 0.85
+  evidence: POST /scim/v2/enterprises/{enterprise}/Users  createScimUser  Provision a SCIM user
+  reason: SCIM user provisioning/deprovisioning against an enterprise is identity lifecycle federation
+    — Identity & Access Management. (BC-4230.50 tenant identity federation is an alternative reading but
+    this is the vendor's own enterprise IAM surface.)
+- tag: Actions
+  spec_file: github-enterprise-actions-api-openapi.yml
+  capability_id: BC-4210.10
+  capability_id_l1: BC-4210
+  capability_name: Continuous Integration Management
+  confidence: 0.82
+  evidence: GET /repos/{owner}/{repo}/actions/workflows listWorkflows 'List repository workflows'; GET
+    /repos/{owner}/{repo}/actions/runs listWorkflowRuns 'List workflow runs for a repository'
+  reason: GitHub Actions workflows and workflow runs are CI build pipelines and their executions — Continuous
+    Integration Management.
+- tag: Code Scanning
+  spec_file: github-enterprise-code-scanning-api-openapi.yml
+  capability_id: BC-620.40
+  capability_id_l1: BC-620
+  capability_name: Vulnerability Management
+  confidence: 0.75
+  evidence: GET /repos/{owner}/{repo}/code-scanning/alerts listCodeScanningAlerts 'List code-scanning
+    alerts for a repository'; schema CodeScanningAlert
+  reason: Static code-scanning alerts surface security weaknesses in code for triage and remediation,
+    matching Vulnerability Management; could alternatively be read as quality engineering, hence not higher.
+- tag: Issues
+  spec_file: github-enterprise-issues-api-openapi.yml
+  capability_id: BC-4200.10
+  capability_id_l1: BC-4200
+  capability_name: Product Discovery & Backlog Management
+  confidence: 0.7
+  evidence: POST /repos/{owner}/{repo}/issues  createIssue  Create an issue
+  reason: GitHub issues are the work-item/backlog and defect tracking surface for software engineering
+    teams. Falls under Software Product Engineering Management; sub-capability split between backlog (4200.10)
+    and defect management (4200.50) is ambiguous, hence moderate confidence.

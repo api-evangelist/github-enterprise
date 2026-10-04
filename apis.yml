@@ -254,6 +254,9 @@ apis:
   - type: GraphQL API
     url: https://docs.github.com/en/enterprise-server@latest/graphql
 common:
+- type: CapabilityMap
+  url: capabilities/github-enterprise-capability-edges.yml
+  name: GitHub Enterprise Business Capability Map
 - type: AgenticAccess
   url: agentic-access/github-enterprise-agentic-access.yml
 - type: Authentication
