@@ -107,12 +107,6 @@ paths:
           description: Deleted
 components:
   parameters:
-    Repo:
-      in: path
-      name: repo
-      required: true
-      schema:
-        type: string
     PerPage:
       in: query
       name: per_page
@@ -121,15 +115,21 @@ components:
         minimum: 1
         maximum: 100
         default: 30
-    Org:
-      in: path
-      name: org
-      required: true
-      schema:
-        type: string
     Owner:
       in: path
       name: owner
+      required: true
+      schema:
+        type: string
+    Repo:
+      in: path
+      name: repo
+      required: true
+      schema:
+        type: string
+    Org:
+      in: path
+      name: org
       required: true
       schema:
         type: string
@@ -141,6 +141,26 @@ components:
         minimum: 1
         default: 1
   schemas:
+    User:
+      type: object
+      properties:
+        id:
+          type: integer
+        login:
+          type: string
+        name:
+          type: string
+        email:
+          type: string
+          format: email
+        avatar_url:
+          type: string
+          format: uri
+        html_url:
+          type: string
+          format: uri
+        type:
+          type: string
     Repository:
       type: object
       properties:
@@ -164,26 +184,6 @@ components:
         created_at:
           type: string
           format: date-time
-    User:
-      type: object
-      properties:
-        id:
-          type: integer
-        login:
-          type: string
-        name:
-          type: string
-        email:
-          type: string
-          format: email
-        avatar_url:
-          type: string
-          format: uri
-        html_url:
-          type: string
-          format: uri
-        type:
-          type: string
   securitySchemes:
     bearerAuth:
       type: http

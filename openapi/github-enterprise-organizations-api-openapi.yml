@@ -48,13 +48,6 @@ paths:
               schema:
                 $ref: '#/components/schemas/Organization'
 components:
-  parameters:
-    Org:
-      in: path
-      name: org
-      required: true
-      schema:
-        type: string
   schemas:
     Organization:
       type: object
@@ -78,6 +71,13 @@ components:
               type: integer
             filled_seats:
               type: integer
+  parameters:
+    Org:
+      in: path
+      name: org
+      required: true
+      schema:
+        type: string
   securitySchemes:
     bearerAuth:
       type: http

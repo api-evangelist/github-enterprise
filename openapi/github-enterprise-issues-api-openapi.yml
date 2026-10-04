@@ -97,13 +97,6 @@ paths:
                 $ref: '#/components/schemas/Issue'
 components:
   parameters:
-    Page:
-      in: query
-      name: page
-      schema:
-        type: integer
-        minimum: 1
-        default: 1
     PerPage:
       in: query
       name: per_page
@@ -124,7 +117,34 @@ components:
       required: true
       schema:
         type: string
+    Page:
+      in: query
+      name: page
+      schema:
+        type: integer
+        minimum: 1
+        default: 1
   schemas:
+    User:
+      type: object
+      properties:
+        id:
+          type: integer
+        login:
+          type: string
+        name:
+          type: string
+        email:
+          type: string
+          format: email
+        avatar_url:
+          type: string
+          format: uri
+        html_url:
+          type: string
+          format: uri
+        type:
+          type: string
     Issue:
       type: object
       properties:
@@ -155,26 +175,6 @@ components:
         created_at:
           type: string
           format: date-time
-    User:
-      type: object
-      properties:
-        id:
-          type: integer
-        login:
-          type: string
-        name:
-          type: string
-        email:
-          type: string
-          format: email
-        avatar_url:
-          type: string
-          format: uri
-        html_url:
-          type: string
-          format: uri
-        type:
-          type: string
   securitySchemes:
     bearerAuth:
       type: http

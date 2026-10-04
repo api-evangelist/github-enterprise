@@ -93,13 +93,6 @@ paths:
           description: Created
 components:
   parameters:
-    Page:
-      in: query
-      name: page
-      schema:
-        type: integer
-        minimum: 1
-        default: 1
     PerPage:
       in: query
       name: per_page
@@ -120,6 +113,13 @@ components:
       required: true
       schema:
         type: string
+    Page:
+      in: query
+      name: page
+      schema:
+        type: integer
+        minimum: 1
+        default: 1
   schemas:
     PullRequest:
       type: object
