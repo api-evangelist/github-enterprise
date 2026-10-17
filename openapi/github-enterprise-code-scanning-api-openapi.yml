@@ -52,15 +52,15 @@ paths:
                   $ref: '#/components/schemas/CodeScanningAlert'
 components:
   parameters:
-    Owner:
-      in: path
-      name: owner
-      required: true
-      schema:
-        type: string
     Repo:
       in: path
       name: repo
+      required: true
+      schema:
+        type: string
+    Owner:
+      in: path
+      name: owner
       required: true
       schema:
         type: string
