@@ -1,4 +1,4 @@
-# GitHub Enterprise (github-enterprise)
+# GitHub Enterprise
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -66,89 +66,120 @@
 
 GitHub Enterprise is GitHub's offering for organizations that need advanced security, compliance, identity, and scale on top of the GitHub platform. It ships in two flavors: GitHub Enterprise Cloud, a hosted multi-tenant service on api.github.com with enterprise-managed users and SAML SSO; and GitHub Enterprise Server (GHES), a self-hosted appliance with the same REST and GraphQL APIs served from a customer's domain at /api/v3 and /api/graphql. Both expose the full GitHub REST API for repositories, issues, pull requests, actions, packages, advanced security, audit log, SCIM, and admin operations, authenticated with personal access tokens or GitHub App tokens.
 
-**APIs.json:** [https://raw.githubusercontent.com/api-evangelist/github-enterprise/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/github-enterprise/refs/heads/main/apis.yml)
+**Areas:** Version Control · DevOps · CI/CD · Code Hosting · Enterprise · Self-Hosted · SAML SSO · SCIM · Advanced Security · Developer Tools
 
-## Scope
+## GitHub Enterprise on APIs.io
 
-- **Type:** Index
+Everything profiled for GitHub Enterprise is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/github-enterprise/](https://apis.io/providers/github-enterprise/)** — or go straight to one of the APIs or properties below.
 
-## Tags
+### APIs (9)
 
-- Source Control
-- DevOps
-- CI/CD
-- Code Hosting
-- Enterprise
-- Self-Hosted
-- SAML SSO
-- SCIM
-- Advanced Security
+- [GitHub Enterprise Actions API](https://apis.io/apis/github-enterprise/github-enterprise-actions-api/) — The Actions API from GitHub Enterprise — 2 operation(s) for actions.
+- [GitHub Enterprise Code Scanning API](https://apis.io/apis/github-enterprise/github-enterprise-code-scanning-api/) — The Code Scanning API from GitHub Enterprise — 1 operation(s) for code scanning.
+- [GitHub Enterprise Admin API](https://apis.io/apis/github-enterprise/github-enterprise-enterprise-admin-api/) — The Enterprise Admin API from GitHub Enterprise — 1 operation(s) for enterprise admin.
+- [GitHub Enterprise Issues API](https://apis.io/apis/github-enterprise/github-enterprise-issues-api/) — The Issues API from GitHub Enterprise — 1 operation(s) for issues.
+- [GitHub Enterprise Organizations API](https://apis.io/apis/github-enterprise/github-enterprise-organizations-api/) — The Organizations API from GitHub Enterprise — 1 operation(s) for organizations.
+- [GitHub Enterprise Pull Requests API](https://apis.io/apis/github-enterprise/github-enterprise-pull-requests-api/) — The Pull Requests API from GitHub Enterprise — 1 operation(s) for pull requests.
+- [GitHub Enterprise Repositories API](https://apis.io/apis/github-enterprise/github-enterprise-repositories-api/) — The Repositories API from GitHub Enterprise — 2 operation(s) for repositories.
+- [GitHub Enterprise SCIM API](https://apis.io/apis/github-enterprise/github-enterprise-scim-api/) — The SCIM API from GitHub Enterprise — 1 operation(s) for scim.
+- [GitHub Enterprise Users API](https://apis.io/apis/github-enterprise/github-enterprise-users-api/) — The Users API from GitHub Enterprise — 2 operation(s) for users.
 
-## Timestamps
+### Published properties
 
-- **Created:** 2026-05-11
-- **Modified:** 2026-05-11
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-## APIs
+#### GraphQL (1)
 
-### GitHub Enterprise Cloud REST API
+GraphQL schemas.
 
-Hosted GitHub Enterprise Cloud REST API. Provides full access to repositories, issues, pull requests, GitHub Actions, packages, code scanning, secret scanning, Dependabot, audit log, SCIM provisioning, and enterprise admin endpoints. Authentication via fine-grained personal access tokens, GitHub App installation tokens, or OAuth.
+- [GitHub Enterprise GraphQL API](https://apis.io/graphqls/github-enterprise/github-enterprise-graphql/)
 
-- **Human URL:** [https://docs.github.com/en/enterprise-cloud@latest/rest](https://docs.github.com/en/enterprise-cloud@latest/rest)
-- **Base URL:** `https://api.github.com`
+#### Agentic access (1)
 
-#### Tags
+Which operations an agent can call, which act, and which need a human in the loop.
 
-- REST
-- Source Control
-- Enterprise Cloud
-- SCIM
-- Audit Log
+- [Github Enterprise Agentic Access](https://apis.io/agentic-access/github-enterprise/github-enterprise-agentic-access/)
 
-#### Properties
+#### Collections (10)
 
-- [Documentation](https://docs.github.com/en/enterprise-cloud@latest/rest)
-- [OpenAPI](https://github.com/github/rest-api-description) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Authentication](https://docs.github.com/en/enterprise-cloud@latest/rest/overview/authenticating-to-the-rest-api)
-- [Graph Q L  A P I](https://docs.github.com/en/enterprise-cloud@latest/graphql)
-- [Postman Collection](collections/github-enterprise.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/github-enterprise.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+Postman and Open Collection request collections.
 
-### GitHub Enterprise Server REST API
+- [GitHub Enterprise Cloud REST API](https://apis.io/collections/github-enterprise/open-github-enterprise/)
+- [GitHub Enterprise Cloud REST Actions API](https://apis.io/collections/github-enterprise/open-github-enterprise-actions-api/)
+- [GitHub Enterprise Cloud REST Actions Code Scanning API](https://apis.io/collections/github-enterprise/open-github-enterprise-code-scanning-api/)
+- [GitHub Enterprise Cloud REST Actions Enterprise Admin API](https://apis.io/collections/github-enterprise/open-github-enterprise-enterprise-admin-api/)
+- [GitHub Enterprise Cloud REST Actions Issues API](https://apis.io/collections/github-enterprise/open-github-enterprise-issues-api/)
+- [GitHub Enterprise Cloud REST Actions Organizations API](https://apis.io/collections/github-enterprise/open-github-enterprise-organizations-api/)
+- [GitHub Enterprise Cloud REST Actions Pull Requests API](https://apis.io/collections/github-enterprise/open-github-enterprise-pull-requests-api/)
+- [GitHub Enterprise Cloud REST Actions Repositories API](https://apis.io/collections/github-enterprise/open-github-enterprise-repositories-api/)
+- [GitHub Enterprise Cloud REST Actions SCIM API](https://apis.io/collections/github-enterprise/open-github-enterprise-scim-api/)
+- [GitHub Enterprise Cloud REST Actions Users API](https://apis.io/collections/github-enterprise/open-github-enterprise-users-api/)
 
-Self-hosted GitHub Enterprise Server REST API served from a customer's own hostname under /api/v3. Per-version OpenAPI descriptions are published for each GHES release (ghes-X.X) alongside the hosted GHEC and api.github.com descriptions in github/rest-api-description.
+#### Security (1)
 
-- **Human URL:** [https://docs.github.com/en/enterprise-server@latest/rest](https://docs.github.com/en/enterprise-server@latest/rest)
-- **Base URL:** `https://HOSTNAME/api/v3`
+Authentication, trust centre, and vulnerability disclosure.
 
-#### Tags
+- [Github Enterprise Authentication](https://apis.io/security/github-enterprise/github-enterprise-authentication/)
 
-- REST
-- Self-Hosted
-- Enterprise Server
-- On-Premises
+## Where to find this API
 
-#### Properties
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
 
-- [Documentation](https://docs.github.com/en/enterprise-server@latest/rest)
-- [OpenAPI](https://github.com/github/rest-api-description) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Graph Q L  A P I](https://docs.github.com/en/enterprise-server@latest/graphql)
-- [Postman Collection](collections/github-enterprise.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/github-enterprise.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-## Common Properties
-
-- [LinkedIn](https://www.linkedin.com/showcase/github-enterprise)
 - [Website](https://github.com/enterprise)
 - [Documentation](https://docs.github.com/en/enterprise-cloud@latest)
 - [Pricing](https://github.com/enterprise/pricing)
-- [Sign Up](https://github.com/enterprise/contact)
-- [Status Page](https://www.githubstatus.com)
-- [Open A P I  Repository](https://github.com/github/rest-api-description)
-- [L L Ms Txt](https://docs.github.com/llms.txt)
+- [Blog](https://github.blog/feed/)
+- [Status](https://www.githubstatus.com)
 
-## Maintainers
+## API Evangelist rating
 
-**FN:** Kin Lane
-**Email:** kin@apievangelist.com
+**Kin Score 26.0** — emerging · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
+|---|---|
+| Discoverability | 73.2 |
+| Contract quality | 45.3 |
+| Contract governance | 0.0 |
+| Operational transparency | 15.8 |
+| Developer ergonomics | 23.8 |
+| Access clarity | 13.2 |
+
+**Agent readiness 17.3** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | — |
+| Rate Limit Signal | — |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 5.9** — Horizontal (data, software, accessibility, platform)
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/github-enterprise/](https://apis.io/providers/github-enterprise/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for GitHub Enterprise: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/github-enterprise/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
